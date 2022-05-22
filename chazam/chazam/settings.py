@@ -61,7 +61,7 @@ ROOT_URLCONF = 'chazam.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'apps/base/templates/base'],
+        'DIRS': [BASE_DIR /'apps/base/templates/base'], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
