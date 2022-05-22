@@ -20,7 +20,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='signup.html')),
+    path('', TemplateView.as_view(template_name='login.html')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
 ]
