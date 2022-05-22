@@ -3,8 +3,6 @@
 import os
 import sys
 
-#pruebaGit
-
 
 def main():
     """Run administrative tasks."""
