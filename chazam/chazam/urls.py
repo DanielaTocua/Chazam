@@ -26,5 +26,3 @@ urlpatterns = [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
-
-#Hola dIANA

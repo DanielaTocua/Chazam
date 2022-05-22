@@ -2,11 +2,12 @@
     <html lang="en">
     
     <head>
-        <meta charset="UTF-8" />
-        <title>Chazam | Main Page</title>
-        {% load static %} 
-        <link rel="icon" href="{% static 'Pictures/chazamIcon.ico' %}" /><!--Pone el ícono de la página en el navegador-->
-        <link href="{% static 'styles.css' %}" rel="stylesheet"><!--LLama la hoja de estilos de CSS-->
+      <meta charset="UTF-8" />
+      <title>Chazam | Main Page</title>
+      {% load static %} 
+      <link rel="icon" href="{% static 'Pictures/chazamIcon.ico' %}" /><!--Pone el ícono de la página en el navegador-->
+      <link href="{% static 'styles.css' %}" rel="stylesheet"><!--LLama la hoja de estilos de CSS-->
+      <script src="{% static 'script.js' %}"></script><!--LLama el archivo de JavaScript-->
     </head>
     
     <body>        
@@ -19,8 +20,13 @@
             <p class = "mainPage-subtitle">Sistema de información de chazas
               en la Universidad Nacional de Colombia</p>
           </div>
-          <div class = "user-Box">
+          <div class = "user-Box" onclick= "showPopUp('logOutBox')">
             <img src="{% static 'Pictures/userIcon.png' %}" class="user-icon" alt="user Icon" />
+          </div>
+          <div class= "logout-Box" id = "logOutBox">
+            <a href="/accounts/logout/">
+              <p class ="logout-Text">Cerrar sesión</p>
+            </a>
           </div>
         </div>
         <div class="function-Container">

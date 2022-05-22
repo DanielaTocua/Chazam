@@ -24,6 +24,12 @@ button{
   margin: 7px 0 7px 0;
 }
 
+.logout-Text{
+  font-size: 19px;
+  color: white;
+  margin: 0px 0 0px 0;
+}
+
 .finishRegister-Text{
   text-align: center;
   font-weight: bold;
@@ -97,6 +103,25 @@ button{
   margin-top: 30px;
   margin-left: 20px;
   margin-right: 20px;
+  text-decoration: none;
+}
+
+.logout-Box{
+  background-color: #d24141;
+  color:white;
+  border-radius: 8px;
+  padding: 10px 15px 10px 15px;
+  width: 150px;
+  height:20px;
+  text-align: right;
+  position: sticky;
+  top:50px;
+  margin-top:-10px;
+  float:right;
+  visibility: hidden;
+}
+
+a{
   text-decoration: none;
 }
 
