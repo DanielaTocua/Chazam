@@ -83,13 +83,11 @@ WSGI_APPLICATION = 'chazam.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-            #'NAME': 'milhojasDB',
-        #     'USER': 'root',
-        #     'PASSWORD': 'Milhojas2022*',
-        #     'HOST': 'localhost',
-        #     'PORT': '3306',
-
+        'NAME': 'milhojasDB',
+        'USER': 'root',
+        'PASSWORD': 'Milhojas2022*',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
