@@ -40,6 +40,7 @@ class Producto(models.Model):
 class tipoUsuario(models.Model):
     IdTipoUsuario = models.AutoField(primary_key=True)
     NombreTipoUsuario = models.CharField(max_length=30, blank=False, null=False)
+#Hola Amigos
 
 
 
