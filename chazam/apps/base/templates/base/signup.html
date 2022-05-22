@@ -5,6 +5,7 @@
         <meta charset="UTF-8" />
         <title>Chazam | Sign Up</title>
         {% load static %} 
+        <link rel="icon" href="{% static 'Pictures/chazamIcon.ico' %}" /><!--Pone el ícono de la página en el navegador-->
         <link href="{% static 'styles.css' %}" rel="stylesheet"><!--LLama la hoja de estilos de CSS-->
     </head>
     
@@ -13,20 +14,23 @@
         <div class="signup-Box">
             <img src="{% static 'Pictures/chazamLogo.png' %}"class="Chazam-logo" alt="Chazam logo">
             <p class = "finishRegister-Text">Finaliza el registro</p>
-            <p class = "username-Text">Nombre de Usuario</p>
-            <input class = "usernameInput" type="text" />
-            <p class = "username-Text">Eres...</p>
-            <div>
-              <input type="checkbox"/>
-              <label>Dueño de chaza</label>
-            </div>
-            <div>
-              <input type="checkbox"/>
-              <label>Cliente</label>
-            </div>
-            <button class = "registerButton">
-              <p class = "login-Text">Registrarse</p>
-            </button>
+            <form>
+              <p class = "username-Text">Nombre de Usuario</p>
+              <input class = "usernameInput" type="text"/>
+              <p class = "username-Text">Eres...</p>
+              <label>
+                <input name="tipoCliente" type="radio" value="dueño"/>
+                &nbspDueño de Chaza
+              </label>
+              <br>
+              <label>
+                <input name="tipoCliente" type="radio" value="comensal"/>
+                &nbspComensal
+              </label>
+              <button class = "registerButton">
+                <p class = "login-Text">Registrarse</p>
+              </button>
+            </form>
         </div>
         <div class= "footer">
             <div class = "footer-Content">
