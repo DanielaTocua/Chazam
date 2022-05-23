@@ -7,8 +7,8 @@ def login(request):
     return render(request, 'goToLogin.html')
 
 def finalSignup(request):
-    idActual = str(request.user.id)
-    o = comensales.objects.raw("SELECT * from base_comensales where IdComensal = "+idActual)
+    idActual = str(request.user.IdComensal)
+    o = comensales.objects.raw("SELECT * from base_comensales where RegistroFinalizado = "+idActual)
     count = 0
     for obj in o:
         count += 1
