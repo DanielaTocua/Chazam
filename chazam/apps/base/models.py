@@ -34,13 +34,14 @@ class comentarios(models.Model):
 class DuenoChaza(models.Model):
     IdDuenoChaza = models.AutoField(primary_key=True)
     IdComensal = models.ForeignKey(comensales, on_delete=models.CASCADE)
-
-class Producto(models.Model):
-    IdProducto = models.AutoField(primary_key=True)
     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
-    NombreProducto = models.CharField(max_length=30, blank=False, null=False)
-    Precio = models.FloatField(blank=False, null=False)
-    Imagen = models.ImageField()
+
+# class Producto(models.Model):
+#     IdProducto = models.AutoField(primary_key=True)
+#     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
+#     NombreProducto = models.CharField(max_length=30, blank=False, null=False)
+#     Precio = models.FloatField(blank=False, null=False)
+#     Imagen = models.ImageField()
 
 
 #Hola Amigos

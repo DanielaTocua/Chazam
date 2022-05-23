@@ -3,25 +3,29 @@
     
     <head>
         <meta charset="UTF-8" />
-        <title>My first page</title>
-        <link rel="icon" type="image/png" href="Images/Logo.png" />
+        <title>Chazam | Login</title>
+        {% load static %} 
+        <link rel="icon" href="{% static 'Pictures/chazamIcon.ico' %}" /><!--Pone el ícono de la página en el navegador-->
+        <link href="{% static 'styles.css' %}" rel="stylesheet"><!--LLama la hoja de estilos de CSS-->
     </head>
     
-    <body>
-        {% load socialaccount %} {% providers_media_js %} {% load i18n %} {% block login_block %}
-    
-    
-        <div id="login">
-            <h1>Bienvenido a Chazam</h1>
-            {% csrf_token %} 
-
-                <a class="fab fa-google size_social text-info" aria-hidden="true" href="{% provider_login_url 'google' %}">Ingresa con Google</a> 
-                
-                {% if user.is_authenticated %} estoy autenticado {% endif %}
+    <body>        
+        {% load socialaccount %} {% providers_media_js %} {% load i18n %}
+        <div class="login-Box">
+            <p>Bienvenido a</p>
+            <img src="{% static 'Pictures/chazamLogo.png' %}" class="Chazam-logo" alt="Chazam logo">
+            <a class = "googleLogin" aria-hidden="true" href="{% provider_login_url 'google' %}">
+                <img src= "{% static 'Pictures/googleLogo.png' %}" class="Google-logo" alt="Google logo">
+                <p class = "login-Text">Continuar con Google</p>
+            </a>
+            {% if user.is_authenticated %} estoy autenticado {% endif %}  
         </div>
-        {% endblock login_block %}
-    
-    
+        <div class= "footer">
+            <div class = "footer-Content">
+              <p class = "footer-Text">Desarrollado por</p>
+              <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
+            </div>
+        </div>
     </body>
     
     </html>
