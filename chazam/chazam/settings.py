@@ -163,4 +163,5 @@ LOGOUT_REDIRECT_URL = '/loginPage'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+SITE_ID = 2
 AUTH_USER_MODEL = "base.comensales" #define el CustomUser 

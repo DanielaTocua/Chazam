@@ -24,6 +24,7 @@ class comensales(AbstractUser):
     IdComensal = models.AutoField(primary_key=True)
     IdTipoUsuario = models.ForeignKey(tipoUsuario, on_delete=models.CASCADE,default=2)
     NombreUsuario = models.CharField(max_length=20, blank=False, null=False)
+    RegistroFinalizado = models.IntegerField(default=0)
 
 class comentarios(models.Model):
     IdComentario = models.AutoField(primary_key=True)
