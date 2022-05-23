@@ -31,12 +31,9 @@ def form_comensales(request ):
         obj = comensales.objects.get(IdComensal_id = request.user.id)
         form = comensalesForm(request.POST, instance=obj)
         if form.is_valid():
-            
             form.save()
-            newId = comensales.objects.all().last()
-            newId.RegistroFinal = request.user.id
-            newId.save()
-
+            obj.RegistroFinal = obj.IdComensal_id
+            obj.save()
             return redirect(mainPage)
         else:
             messages.error(request, 'Error al insertar factura. Revise los datos.')

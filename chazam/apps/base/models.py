@@ -1,3 +1,4 @@
+from turtle import pos
 from django.db import models
 from django.forms import IntegerField
 from django.conf import settings
@@ -31,7 +32,7 @@ class categoria(models.Model):
 class comensales(models.Model):
     IdComensal = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, primary_key=True,unique=True)
     IdTipoUsuario = models.ForeignKey(tipoUsuario, on_delete=models.CASCADE, verbose_name="Tipo de Usuario", default=1)
-    NombreUsuario = models.CharField(max_length=20, blank=False, null=False, verbose_name= "Nombre a Mostrar", default= "SinNombre")
+    NombreUsuario = models.CharField(max_length=20, blank=False, null=False, verbose_name= "Nombre a Mostrar", default= "Superusuario")
     RegistroFinal = models.IntegerField(default=0)
     def __str__(self):
         return self.NombreUsuario
@@ -61,10 +62,11 @@ class DuenoChaza(models.Model):
 
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_comensal(sender, instance, **kwargs):
-    nuevoComensal = comensales(instance.id)
+    nuevoComensal = comensales(instance.id, NombreUsuario = instance.username)
     nuevoComensal.save()
 
-#Hola Amigos
+
+    
 
 
 
