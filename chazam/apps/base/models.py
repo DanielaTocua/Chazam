@@ -1,5 +1,8 @@
 from django.db import models
-
+from django.forms import IntegerField
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # Create your models here.
 class chaza(models.Model):
     IdChaza = models.AutoField(primary_key=True)
@@ -7,32 +10,46 @@ class chaza(models.Model):
     Puntuacion = models.FloatField(blank=False, null=False)
     Descripcion = models.TextField(blank=False, null=False)
     Ubicacion = models.CharField(max_length=200, blank=False, null=False)
+    def __str__(self):
+        return self.NombreChaza
 
 class tipoUsuario(models.Model):
-    IdTipoUsuario = models.AutoField(primary_key=True)
-    NombreTipoUsuario = models.CharField(max_length=30, blank=False, null=False)
+    IdTipoUsuario = models.AutoField(primary_key=True, )
+    NombreTipoUsuario = models.CharField(max_length=30, blank=False, null=False, )
+
+    def __str__(self):
+        return self.NombreTipoUsuario
 
 class categoria(models.Model):
     IdCategoria = models.AutoField(primary_key=True)
     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
     NombreCategoria = models.CharField(max_length=20, blank=False, null=False)
+    def __str__(self):
+        return self.NombreCategoria
 
 
 class comensales(models.Model):
-    IdComensal = models.AutoField(primary_key=True)
-    IdTipoUsuario = models.ForeignKey(tipoUsuario, on_delete=models.CASCADE)
-    NombreUsuario = models.CharField(max_length=20, blank=False, null=False)
+    IdComensal = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, primary_key=True,unique=True)
+    IdTipoUsuario = models.ForeignKey(tipoUsuario, on_delete=models.CASCADE, verbose_name="Tipo de Usuario", default=1)
+    NombreUsuario = models.CharField(max_length=20, blank=False, null=False, verbose_name= "Nombre a Mostrar", default= "SinNombre")
+    RegistroFinal = models.IntegerField(default=0)
+    def __str__(self):
+        return self.NombreUsuario
 
 class comentarios(models.Model):
     IdComentario = models.AutoField(primary_key=True)
     IdComensal = models.ForeignKey(comensales, on_delete=models.CASCADE)
     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
     DescripcionComentario= models.TextField(max_length=400, blank=False, null=False)
+    def __str__(self):
+        return self.IdComentario + "." + self.DescripcionComentario
 
 class DuenoChaza(models.Model):
     IdDuenoChaza = models.AutoField(primary_key=True)
     IdComensal = models.ForeignKey(comensales, on_delete=models.CASCADE)
     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.IdDuenoChaza
 
 # class Producto(models.Model):
 #     IdProducto = models.AutoField(primary_key=True)
@@ -41,6 +58,11 @@ class DuenoChaza(models.Model):
 #     Precio = models.FloatField(blank=False, null=False)
 #     Imagen = models.ImageField()
 
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_comensal(sender, instance, **kwargs):
+    nuevoComensal = comensales(instance.id)
+    nuevoComensal.save()
 
 #Hola Amigos
 

@@ -24,6 +24,7 @@ urlpatterns = [
     path('finalSignup/', views.finalSignup),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('formComensales/',views.form_comensales)
 ]
 
 urlpatterns += staticfiles_urlpatterns()
