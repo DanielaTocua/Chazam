@@ -21,6 +21,7 @@ from apps.base import views
 urlpatterns = [
     path('', views.mainPage),
     path('loginPage/', views.login),
+    path('finalSignup/', views.finalSignup),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
 ]

@@ -154,7 +154,9 @@ AUTHENTICATION_BACKENDS = (
     )
 
 LOGIN_URL = '/loginPage'
-LOGIN_REDIRECT_URL = '/'
+
+LOGIN_REDIRECT_URL = '/finalSignup'
+
 LOGOUT_REDIRECT_URL = '/loginPage'
 
 # Default primary key field type
