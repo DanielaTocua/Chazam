@@ -8,7 +8,7 @@ def login(request):
 
 def finalSignup(request):
     idActual = str(request.user.id)
-    o = comensales.objects.raw("SELECT * from base_comensales where IdTipoUsuario_id = "+idActual)
+    o = comensales.objects.raw("SELECT * from base_comensales where IdComensal = "+idActual)
     count = 0
     for obj in o:
         count += 1
