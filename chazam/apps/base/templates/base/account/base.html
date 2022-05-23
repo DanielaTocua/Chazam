@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    {% load static %} 
+    <link href="{% static 'styles.css' %}" rel="stylesheet"><!--LLama la hoja de estilos de CSS-->
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}
+    <div class="optionsLogin-Box">
+        {% if user.is_authenticated %}
+        <!--Nada-->
+        {% else %}
+        <div><a href="{% url 'account_login' %}">Ingresar</a></div>
+        <div><a href="{% url 'account_signup' %}">Registrarse</a></div>
+        {% endif %}
+    </div>
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+    <div class= "footer">
+      <div class = "footer-Content">
+        <p class = "footer-Text">Desarrollado por</p>
+        <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
+      </div>
+    </div>
+  </body>
+</html>
