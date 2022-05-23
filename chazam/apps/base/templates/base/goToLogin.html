@@ -14,11 +14,9 @@
         <div class="login-Box">
             <p>Bienvenido a</p>
             <img src="{% static 'Pictures/chazamLogo.png' %}" class="Chazam-logo" alt="Chazam logo">
-            <a class = "googleLogin" aria-hidden="true" href="{% provider_login_url 'google' %}">
-                <img src= "{% static 'Pictures/googleLogo.png' %}" class="Google-logo" alt="Google logo">
-                <p class = "login-Text">Continuar con Google</p>
+            <a class = "startButton" aria-hidden="true" href="/accounts/login/">
+                <p class = "login-Text">Iniciar</p>
             </a>
-            {% if user.is_authenticated %} estoy autenticado {% endif %}  
         </div>
         <div class= "footer">
             <div class = "footer-Content">

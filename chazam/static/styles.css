@@ -70,7 +70,33 @@ button{
 .login-Box {
   text-align: center;
   background-color: rgba(5,22,30,0.6);
-  padding: 30px 10px 80px 10px;
+  padding: 30px 10px 50px 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+  width: 420px;
+  font-size: 22px;
+  color: white;
+}
+
+.login-Box2 {
+  text-align: center;
+  background-color: rgba(5,22,30,0.6);
+  padding: 30px 10px 50px 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+  width: 380px;
+  font-size: 22px;
+  color: white;
+}
+
+.logout-Page-Box{
+  text-align: center;
+  background-color: rgba(13, 117, 120, 0.732);
+  padding: 30px 30px 50px 30px;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -99,11 +125,80 @@ button{
   border-radius: 8px;
   background-color: #17A597;
   padding: 10px 25px 10px 25px;
-  width: 320px;
-  margin-top: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 280px;
+  margin-top: -5px;
+  margin-bottom: 30px;
+  margin-left: 28px;
+  margin-right: 28px;
   text-decoration: none;
+}
+.otherLogin{
+  text-align: left;
+  display: block;
+  border: none;
+  border-radius: 8px;
+  background-color: #167f99;
+  padding: 10px 35px 10px 35px;
+  width: 220px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  margin-left: 45px;
+  margin-right: 45px;
+  text-decoration: none;
+}
+
+.Ingresar-Text{
+  font-size: 30px;
+  color: white;
+}
+
+.startButton{
+  display: block;
+  border: none;
+  border-radius: 8px;
+  background-color: #17A597;
+  padding: 10px 25px 10px 25px;
+  width: 200px;
+  margin-top: 30px;
+  margin-left: 90px;
+  margin-right: 90px;
+  text-decoration: none;
+}
+
+.ingresarButton{
+  display: block;
+  border: none;
+  border-radius: 8px;
+  background-color: #c65f5f;
+  padding: 10px 10px 10px 10px;
+  width: 180px;
+  margin-top: -10px;
+  margin-left: 105px;
+  margin-right: 105px;
+}
+
+.goToRegisterButton{
+  font-size: 18px;
+  display: block;
+  border-style: outset;
+  border-radius: 8px;
+  padding: 10px 10px 10px 10px;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 135px;
+  margin-right: 135px;
+}
+
+.goToLoginButton{
+  font-size: 18px;
+  display: block;
+  border-style: outset;
+  border-radius: 8px;
+  padding: 5px 10px 5px 10px;
+  width: 250px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logout-Box{
@@ -123,6 +218,7 @@ button{
 
 a{
   text-decoration: none;
+  color: white;
 }
 
 .registerButton{
