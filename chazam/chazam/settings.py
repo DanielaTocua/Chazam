@@ -146,6 +146,8 @@ STATICFILES_DIRS = [
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
