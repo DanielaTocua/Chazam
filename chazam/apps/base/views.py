@@ -11,6 +11,7 @@ def login(request):
 
 def finalSignup(request):
     idActual = str(request.user.id)
+    
     o = comensales.objects.raw("SELECT * from base_comensales where RegistroFinal = "+idActual)
     count = 0
     for obj in o:
@@ -28,7 +29,7 @@ def mainPage(request):
 
 def form_comensales(request ):
     if request.method == 'POST':
-        obj = comensales.objects.get(IdComensal_id = request.user.id)
+        obj = comensales(request.user.id)
         form = comensalesForm(request.POST, instance=obj)
         if form.is_valid():
             form.save()

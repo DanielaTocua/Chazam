@@ -60,10 +60,7 @@ class DuenoChaza(models.Model):
 #     Imagen = models.ImageField()
 
 
-@receiver(post_save, sender=settings.AUTH_USER_MODEL)
-def create_comensal(sender, instance, **kwargs):
-    nuevoComensal = comensales(instance.id, NombreUsuario = instance.username)
-    nuevoComensal.save()
+
 
 
     
