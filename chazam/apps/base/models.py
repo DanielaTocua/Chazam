@@ -22,8 +22,6 @@ class comensales(models.Model):
     IdComensal = models.AutoField(primary_key=True)
     IdTipoUsuario = models.ForeignKey(tipoUsuario, on_delete=models.CASCADE)
     NombreUsuario = models.CharField(max_length=20, blank=False, null=False)
-    Email = models.CharField(max_length=30, blank=False, null=False)
-    Contrasena = models.CharField(max_length=40, blank=False, null=False)
 
 class comentarios(models.Model):
     IdComentario = models.AutoField(primary_key=True)
