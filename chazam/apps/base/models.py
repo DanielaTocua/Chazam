@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class chaza(models.Model):
@@ -18,9 +19,10 @@ class categoria(models.Model):
     NombreCategoria = models.CharField(max_length=20, blank=False, null=False)
 
 
-class comensales(models.Model):
+class comensales(AbstractUser):
+    pass
     IdComensal = models.AutoField(primary_key=True)
-    IdTipoUsuario = models.ForeignKey(tipoUsuario, on_delete=models.CASCADE)
+    IdTipoUsuario = models.ForeignKey(tipoUsuario, on_delete=models.CASCADE,default=2)
     NombreUsuario = models.CharField(max_length=20, blank=False, null=False)
 
 class comentarios(models.Model):
