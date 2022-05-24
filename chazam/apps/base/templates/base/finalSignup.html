@@ -9,27 +9,30 @@
         <link href="{% static 'styles.css' %}" rel="stylesheet"><!--LLama la hoja de estilos de CSS-->
     </head>
     
-    <body>        
+    <body>      
         {% load socialaccount %} {% providers_media_js %} {% load i18n %}
+
+        {% if messages %}
+	      <ul class="messages">
+		    {% for message in messages %}
+			  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    {% endfor %}
+	      </ul>
+	      {% endif %}
         <div class="signup-Box">
             <img src="{% static 'Pictures/chazamLogo.png' %}"class="Chazam-logo" alt="Chazam logo">
             <p class = "finishRegister-Text">Finaliza el registro</p>
-            <form>
-              <p class = "username-Text">Nombre de Usuario</p>
-              <input class = "usernameInput" type="text"/>
-              <p class = "username-Text">Eres...</p>
-              <label>
-                <input name="tipoCliente" type="radio" value="dueño"/>
-                &nbspDueño de Chaza
-              </label>
-              <br>
-              <label>
-                <input name="tipoCliente" type="radio" value="comensal"/>
-                &nbspComensal
-              </label>
-              <button class = "registerButton">
-                <p class = "login-Text">Registrarse</p>
-              </button>
+            <form class="login" method="POST" action="">
+              {% csrf_token %}
+			        <div class = "signup-Box">
+                <table>
+                {{ form }}
+                <table>
+              </div>
+
+
+              <input type = "submit" class = "registerButton" value ="Continuar">
+
             </form>
         </div>
         <div class= "footer">
@@ -39,5 +42,4 @@
             </div>
         </div>
     </body>
-    
     </html>
