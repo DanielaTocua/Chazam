@@ -12,28 +12,20 @@
     <body>      
         {% load socialaccount %} {% providers_media_js %} {% load i18n %}
 
-        {% if messages %}
-	      <ul class="messages">
-		    {% for message in messages %}
-			  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-		    {% endfor %}
-	      </ul>
-	      {% endif %}
         <div class="signup-Box">
-            <img src="{% static 'Pictures/chazamLogo.png' %}"class="Chazam-logo" alt="Chazam logo">
-            <p class = "finishRegister-Text">Finaliza el registro</p>
-            <form class="login" method="POST" action="">
-              {% csrf_token %}
-			        <div class = "signup-Box">
-                <table>
-                {{ form }}
-                <table>
-              </div>
+          <img src="{% static 'Pictures/chazamLogo.png' %}"class="Chazam-logo" alt="Chazam logo">
+          <p class = "finishRegister-Text">Finaliza el registro</p>
+          <form class="login" method="POST" action="">
+            {% csrf_token %}
+            <div class = "signup-Box2">
 
+              {{ form.as_p }}
 
-              <input type = "submit" class = "registerButton" value ="Continuar">
+            </div>
+            
+            <input type = "submit" class = "registerButton" value ="Continuar">
 
-            </form>
+          </form>
         </div>
         <div class= "footer">
             <div class = "footer-Content">

@@ -1,10 +1,9 @@
-import re
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from .models import comensales
 from .forms import comensalesForm
 from django.contrib import messages
-from django.conf import settings
+
 # Create your views here.
 def login(request):
     return render(request, 'goToLogin.html')
@@ -24,8 +23,6 @@ def finalSignup(request):
 @login_required
 def mainPage(request):
     return render(request, 'mainPage.html')
-
-
 
 def form_comensales(request ):
     if request.method == 'POST':
