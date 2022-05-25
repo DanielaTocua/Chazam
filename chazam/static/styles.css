@@ -370,25 +370,25 @@ a{
   height: 480px;
 }
 
-.footer {
+.footer{
   position: fixed;
   bottom: 0px;
   left: 0px;
   right: 0px;
   padding: 10px 0 10px 0;
-  background-color: rgba(0, 0, 0, 0.767);
+  background-color: rgba(75, 20, 20, 0.767);
   color: white;
 }
 
-.footerSpace {
+.footerSpace{
   height: 100px;
 }
 
-.footer-Content {
+.footer-Content{
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
-  background-color: rgba(0, 0, 0, 0.767);
+  background-color: rgba(146, 16, 16, 0.767);
   color: white;
 }
