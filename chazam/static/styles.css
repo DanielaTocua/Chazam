@@ -370,8 +370,8 @@ a{
   height: 480px;
 }
 
-.footer {
-  position: absolute;
+.footer{
+  position: fixed;
   bottom: 0px;
   left: 0px;
   right: 0px;
@@ -380,7 +380,11 @@ a{
   color: white;
 }
 
-.footer-Content {
+.footerSpace{
+  height: 100px;
+}
+
+.footer-Content{
   display: block;
   margin-left: auto;
   margin-right: auto;
