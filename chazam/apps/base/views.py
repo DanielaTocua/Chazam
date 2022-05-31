@@ -10,7 +10,6 @@ def login(request):
 
 def finalSignup(request):
     idActual = str(request.user.id)
-    
     o = comensales.objects.raw("SELECT * from base_comensales where RegistroFinal = "+idActual)
     count = 0
     for obj in o:
@@ -34,7 +33,6 @@ def form_comensales(request ):
             obj.save()
             return redirect(mainPage)
         else:
-            messages.error(request, 'Error al insertar factura. Revise los datos.')
             context = {'form': form }      
             return render(request, 'finalSignup.html', context)
     else:
@@ -43,4 +41,6 @@ def form_comensales(request ):
          context = {'form': form}
          return render(request, 'finalSignup.html', context)
 
-
+@login_required()
+def uploadChazaInfo(request):
+    return render(request, 'uploadChazaInfo.html')
