@@ -22,6 +22,7 @@ urlpatterns = [
     path('', views.mainPage),
     path('loginPage/', views.login),
     path('finalSignup/', views.finalSignup),
+    path('uploadChazaInfo/', views.uploadChazaInfo),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('formComensales/',views.form_comensales)

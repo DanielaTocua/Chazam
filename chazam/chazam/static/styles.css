@@ -28,7 +28,8 @@ button{
 .logout-Text{
   font-size: 19px;
   color: white;
-  margin: 0px 0 0px 0;
+  text-align: right;
+  margin: 5px 0 5px 0;
 }
 
 .finishRegister-Text{
@@ -36,6 +37,14 @@ button{
   font-weight: bold;
   font-size: 20px;
   color: #45e8d8;
+  margin: 20px 0 20px 0;
+}
+
+.registerChaza-Text{
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: #0E625A;
   margin: 20px 0 20px 0;
 }
 
@@ -116,6 +125,19 @@ button{
   margin-right: auto;
   margin-top: 100px;
   width: 250px;
+  font-size: 20px;
+  color: white;
+}
+
+.registerChaza-Box {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.705);
+  padding: 30px 70px 30px 70px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 700px;
   font-size: 20px;
   color: white;
 }
@@ -216,16 +238,16 @@ button{
 }
 
 .logout-Box{
-  background-color: #d24141;
+  background-color: #da3838;
   color:white;
   border-radius: 8px;
   padding: 10px 15px 10px 15px;
-  width: 150px;
-  height:20px;
+  width: 185px;
+  height:60px;
   text-align: right;
   position: sticky;
-  top:50px;
-  margin-top:-10px;
+  margin-top:5px;
+  margin-bottom:-55px;
   float:right;
   visibility: hidden;
 }
@@ -236,12 +258,30 @@ a{
   text-align: center;
 }
 
+.mainPage-Link{
+  text-align: left;
+}
+
 .registerButton{
   border-radius: 5px;
   background-color: rgb(238, 100, 100);
   border-style: none;
   padding: 10px 5px 10px 5px;
   width: 150px;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 18px;
+}
+
+.registerButton2{
+  border-radius: 5px;
+  background-color: #17A597;
+  border-style: none;
+  padding: 10px 5px 10px 5px;
+  width: 250px;
   margin-top: 20px;
   margin-left: 50px;
   margin-right: 50px;
@@ -280,7 +320,7 @@ a{
 
 .Chazam-logo2 {
   position:relative;
-  bottom: -16px;
+  bottom: 4px;
   float:left;
   margin-left: auto;
   margin-right: auto;
