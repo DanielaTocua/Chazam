@@ -34,20 +34,45 @@
     </div>     
     <div class="registerChaza-Box">
       <p class = "registerChaza-Text">Registrar información Chaza</p>
-      <form class="login" method="POST" action="">
+      <form method="POST" action="">
         {% csrf_token %}
-        <div class = "signup-Box2">
-          {{ form }}
+        <div class = "signup-Box3">
+          <p class = "tagForForm1">Nombre:</p>
+          <p class = "tagForForm1">Ubicación:</p>
+          <p class = "tagForForm1">Descripción:</p>
+          <div class = "form-control">
+            {{ form.NombreChaza }}
+          </div>
+          <div class = "form-control1">
+            {{ form.Ubicacion }}
+          </div>
+          <div class = "form-control2">
+            {{ form.Descripcion }}
+          </div>
         </div>
         <input type = "submit" class = "registerButton2" value ="Guardar información">
       </form>
+      {% if user_has_chaza %}
+      <button class = "eraseChazaButton" onclick = "showPopUp('confirmChazaDeletion')">
+        <p class = "erase-Text">Borrar chaza</p>
+      </button>
+      {% endif %}
+      <div class ="confirmChazaDeletion-Box" id = "confirmChazaDeletion">
+        <p class = "erase-Text">¿Borrar tu chaza?</p>
+        <a class = "yesEraseChazaButton" href = "/eraseChaza/">
+          <p class = "erase-Text">Si</p>
+        </a>
+        <button class = "notEraseChazaButton" onclick = "showPopUp('confirmChazaDeletion')">
+          <p class = "erase-Text">No</p>
+        </button>
+      </div>
     </div>
     <div class ="footerSpace"></div>
     <div class= "footer">
-        <div class = "footer-Content">
-          <p class = "footer-Text">Desarrollado por</p>
-          <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
-        </div>
+      <div class = "footer-Content">
+        <p class = "footer-Text">Desarrollado por</p>
+        <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
+      </div>
     </div>
   </body>
   </html>

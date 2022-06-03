@@ -25,6 +25,13 @@ button{
   text-align: center;
 }
 
+.erase-Text{
+  font-size: 18px;
+  color: white;
+  margin: 7px 0 7px 0;
+  text-align: center;
+}
+
 .logout-Text{
   font-size: 19px;
   color: white;
@@ -137,6 +144,7 @@ button{
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
+  margin-bottom: 20px;
   width: 700px;
   font-size: 20px;
   color: white;
@@ -151,6 +159,18 @@ button{
   margin-right: 10px;
   margin-top: 20px;
   width: 170px;
+  font-size: 20px;
+  color: white;
+}
+
+.signup-Box3 {
+  text-align: left;
+  padding: 10px 70px 10px 40px;
+  margin-left: -10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  width: 600px;
+  height:240px;
   font-size: 20px;
   color: white;
 }
@@ -201,6 +221,17 @@ button{
   text-decoration: none;
 }
 
+.eraseChazaButton{
+  display: block;
+  border-radius: 8px;
+  background-color: #c52f2f;
+  padding: 1px 5px 1px 5px;
+  width: 150px;
+  margin-top: -10px;
+  margin-left: 275px;
+  margin-right: 275px;
+}
+
 .ingresarButton{
   display: block;
   border: none;
@@ -243,13 +274,78 @@ button{
   border-radius: 8px;
   padding: 10px 15px 10px 15px;
   width: 185px;
-  height:60px;
   text-align: right;
   position: sticky;
   margin-top:5px;
   margin-bottom:-55px;
   float:right;
   visibility: hidden;
+}
+
+.confirmChazaDeletion-Box {
+  background-color: rgb(4, 62, 88);
+  color:white;
+  border-radius: 15px;
+  border-bottom-left-radius: 0px;
+  padding: 10px 10px 10px 10px;
+  width: 185px;
+  margin-top:-95px;
+  margin-right: 62px;
+  position: sticky;
+  float: right;
+  visibility: hidden;
+}
+
+.yesEraseChazaButton {
+  display: block;
+  float: left;
+  background-color:rgb(179, 32, 32);
+  width: 80px;
+  margin: 0 8px 0 7px;
+  border: none;
+  border-radius: 8px;
+}
+
+.notEraseChazaButton {
+  background-color:rgb(29, 123, 146);
+  width: 80px;
+}
+
+.tagForForm1{
+  color: black;
+  font-weight: bold;
+  width:100%;
+}
+
+.form-control{
+  position: sticky;
+  width:265px;
+  font-size: 20px;
+  height: 35px;
+  border: none;
+  margin-left:48px;
+  margin-top:-68px;
+}
+
+.form-control1{
+  position: sticky;
+  width:250px;
+  font-size: 20px;
+  height: 35px;
+  border: none;
+  margin-left:56px;
+  margin-top:-30px;
+}
+
+.form-control2{
+  position: sticky;
+  width:630px;
+  font-size: 20px;
+  height: 100px;
+  border: none;
+  margin-left:0px;
+  margin-top:10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 a{
