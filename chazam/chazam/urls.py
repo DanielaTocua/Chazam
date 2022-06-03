@@ -26,12 +26,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('formComensales/',views.form_comensales),
-<<<<<<< HEAD
-    path('catalogo/',views.filtroChazas)
-=======
+    path('catalogo/',views.filtroChazas),
     path('formChaza/',views.form_chaza),
     path('eraseChaza/',views.eraseChaza)
->>>>>>> 78b695f66a59f7b64f73bd515a49f380b3712b10
 ]
 
 urlpatterns += staticfiles_urlpatterns()
