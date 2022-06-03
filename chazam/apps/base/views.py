@@ -81,12 +81,7 @@ def form_chaza(request ):
                 obj2.save()
                 return redirect(mainPage)
     else:
-        #Mira si el usuario actual es dueño o comensal
         idActual = str(request.user.id)
-        user_is_owner = False
-        customer = comensales.objects.get(IdComensal_id = idActual)
-        if customer.IdTipoUsuario_id == 2:
-            user_is_owner = True
         #Cuando se abre, trata de buscar los datos de la chaza
         user_has_chaza = False
         try:
@@ -103,7 +98,7 @@ def form_chaza(request ):
         context = {'form': form, 'user_has_chaza': user_has_chaza}
         return render(request, 'uploadChazaInfo.html', context)
 
-@login_required()
+@login_required
 def uploadChazaInfo(request):
     #Mira si el usuario actual es dueño o comensal
     idActual = str(request.user.id)
@@ -116,3 +111,18 @@ def uploadChazaInfo(request):
     #Si el usuario es comensal, no puede subir una chaza
     else:
         return redirect(mainPage)
+
+@login_required
+def eraseChaza(request):
+    try:
+        #Borra los registros de la chaza en la base de datos
+        idActual = str(request.user.id)
+        instance = DuenoChaza.objects.get(IdComensal_id=idActual)
+        tempIdChaza = instance.IdChaza_id
+        instance.delete()
+        instance2 = chaza.objects.get(IdChaza = tempIdChaza)
+        instance2.delete()
+    except:
+        pass
+    return redirect(mainPage)
+
