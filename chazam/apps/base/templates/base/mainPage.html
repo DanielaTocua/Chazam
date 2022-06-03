@@ -26,9 +26,11 @@
             <img src="{% static 'Pictures/userIcon.png' %}" class="user-icon" alt="user Icon" />
           </div>
           <div class= "logout-Box" id = "logOutBox">
+            {% if user_is_owner %}
             <a href="/uploadChazaInfo/">
               <p class ="logout-Text">Cargar/editar chaza</p>
             </a>
+            {% endif %}
             <a href="/accounts/logout/">
               <p class ="logout-Text">Cerrar sesión</p>
             </a>
