@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from .models import comensales
-from .forms import comensalesForm
+from .models import *
+from .forms import *
+from .filters import *
 from django.contrib import messages
 
 # Create your views here.
@@ -23,7 +24,7 @@ def finalSignup(request):
 def mainPage(request):
     return render(request, 'mainPage.html')
 
-def form_comensales(request ):
+def form_comensales(request):
     if request.method == 'POST':
         obj = comensales(request.user.id)
         form = comensalesForm(request.POST, instance=obj)
@@ -44,3 +45,11 @@ def form_comensales(request ):
 @login_required()
 def uploadChazaInfo(request):
     return render(request, 'uploadChazaInfo.html')
+
+@login_required()
+def filtroChazas(request):
+    chazas = chaza.objects.all()
+    filtro = FiltroChazas(request.GET, queryset=chazas)
+    chazas = filtro.qs
+    context = {"filtro": filtro, "chazas":chazas}
+    return render(request,"catalogo.html",context)

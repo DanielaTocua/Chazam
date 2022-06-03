@@ -1,0 +1,58 @@
+<DOCTYPE html> 
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8" />
+        <title>Chazam | Sign Up</title>
+        {% load static %} 
+        <link rel="icon" href="{% static 'Pictures/chazamIcon.ico' %}" /><!--Pone el ícono de la página en el navegador-->
+        <link href="{% static 'styles.css' %}" rel="stylesheet"><!--LLama la hoja de estilos de CSS-->
+    </head>
+    
+    <body>      
+        {% load socialaccount %} {% providers_media_js %} {% load i18n %}
+
+        <div class="signup-Box">
+          <img src="{% static 'Pictures/chazamLogo.png' %}"class="Chazam-logo" alt="Chazam logo">
+          <p class = "finishRegister-Text">Filtro</p>
+          <form class="login" method="GET" action="">
+            {% csrf_token %}
+            <div class = "signup-Box2">
+
+              {{filtro.form}}
+
+            </div>
+            
+            <input type = "submit" class = "registerButton" value ="Continuar">
+
+          </form>
+          <table class="signup-Box" >
+            <tr>
+              <th>Nombre Chaza</th>
+              <th>Puntuación</th>
+              <th>Descripción</th>
+              <th>Ubicación</th>
+          
+            </tr>
+    
+            {% for chaza in chazas %}
+    
+            <tr>
+              <td>{{chaza.NombreChaza}}</td>
+              <td>{{chaza.Puntuacion}}</td>
+              <td>{{chaza.Descripcion}}</td>
+              <td>{{chaza.Ubicacion}}</td>
+            </tr>
+            {% endfor %}
+    
+          </table>
+        </div>
+        <div class ="footerSpace"></div>
+        <div class= "footer">
+            <div class = "footer-Content">
+              <p class = "footer-Text">Desarrollado por</p>
+              <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
+            </div>
+        </div>
+    </body>
+    </html>
