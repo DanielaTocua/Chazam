@@ -25,7 +25,10 @@ urlpatterns = [
     path('uploadChazaInfo/', views.uploadChazaInfo),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('formComensales/',views.form_comensales)
+    path('formComensales/',views.form_comensales),
+    path('catalogo/',views.filtroChazas),
+    path('formChaza/',views.form_chaza),
+    path('eraseChaza/',views.eraseChaza)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

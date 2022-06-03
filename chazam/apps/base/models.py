@@ -7,10 +7,10 @@ from django.dispatch import receiver
 # Create your models here.
 class chaza(models.Model):
     IdChaza = models.AutoField(primary_key=True)
-    NombreChaza = models.CharField(max_length=40, blank=False, null=False)
+    NombreChaza = models.CharField(max_length=40, blank=False, null=False,  verbose_name="Nombre Chaza")
     Puntuacion = models.FloatField(blank=False, null=False)
-    Descripcion = models.TextField(blank=False, null=False)
-    Ubicacion = models.CharField(max_length=200, blank=False, null=False)
+    Descripcion = models.TextField(blank=False, null=False,  verbose_name="Descripción",)
+    Ubicacion = models.CharField(max_length=200, blank=False, null=False,  verbose_name="Ubicación",)
     def __str__(self):
         return self.NombreChaza
 

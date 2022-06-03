@@ -14,16 +14,38 @@
 
         <div class="signup-Box">
           <img src="{% static 'Pictures/chazamLogo.png' %}"class="Chazam-logo" alt="Chazam logo">
-          <p class = "finishRegister-Text">Finaliza el registro</p>
-          <form method="POST" action="">
+          <p class = "finishRegister-Text">Filtro</p>
+          <form class="login" method="GET" action="">
             {% csrf_token %}
             <div class = "signup-Box2">
-              {{ form.as_p }}
+
+              {{filtro.form}}
+
             </div>
             
             <input type = "submit" class = "registerButton" value ="Continuar">
 
           </form>
+          <table class="signup-Box" >
+            <tr>
+              <th>Nombre Chaza</th>
+              <th>Puntuación</th>
+              <th>Descripción</th>
+              <th>Ubicación</th>
+          
+            </tr>
+    
+            {% for chaza in chazas %}
+    
+            <tr>
+              <td>{{chaza.NombreChaza}}</td>
+              <td>{{chaza.Puntuacion}}</td>
+              <td>{{chaza.Descripcion}}</td>
+              <td>{{chaza.Ubicacion}}</td>
+            </tr>
+            {% endfor %}
+    
+          </table>
         </div>
         <div class ="footerSpace"></div>
         <div class= "footer">

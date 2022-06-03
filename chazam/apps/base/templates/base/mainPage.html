@@ -26,18 +26,22 @@
             <img src="{% static 'Pictures/userIcon.png' %}" class="user-icon" alt="user Icon" />
           </div>
           <div class= "logout-Box" id = "logOutBox">
+            {% if user_is_owner %}
             <a href="/uploadChazaInfo/">
               <p class ="logout-Text">Cargar/editar chaza</p>
             </a>
+            {% endif %}
             <a href="/accounts/logout/">
               <p class ="logout-Text">Cerrar sesión</p>
             </a>
           </div>
         </div>
         <div class="function-Container">
-          <div class="catalogo-Button">
-            <img src="{% static 'Pictures/catalogoLogo.png' %}" class="mainPage-Icon" alt="Catalogo" />
-            <p class = "mainPage-ButtonTitle">Catalogo de Chazas</p>
+          <div class="catalogo-Button" >
+            <a href="catalogo/">
+              <img src="{% static 'Pictures/catalogoLogo.png' %}" class="mainPage-Icon" alt="Catalogo" href="catalogo/"/>
+              <p class = "mainPage-ButtonTitle">Catalogo de Chazas</p>
+            </a>
           </div>
           <div class="mapa-Button">
             <img src="{% static 'Pictures/mapaLogo.png' %}" class="mainPage-Icon" alt="Mapa" />
