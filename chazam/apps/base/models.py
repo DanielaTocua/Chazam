@@ -4,6 +4,7 @@ from django.forms import IntegerField
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.utils.text import slugify
 # Create your models here.
 class chaza(models.Model):
     IdChaza = models.AutoField(primary_key=True)
@@ -11,8 +12,12 @@ class chaza(models.Model):
     Puntuacion = models.FloatField(blank=False, null=False)
     Descripcion = models.TextField(blank=False, null=False,  verbose_name="Descripción",)
     Ubicacion = models.CharField(max_length=200, blank=False, null=False,  verbose_name="Ubicación",)
+    slug= models.SlugField(max_length=255, unique=True, default="default")
     def __str__(self):
         return self.NombreChaza
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.NombreChaza)
+        super(chaza, self).save(*args, **kwargs)
 
 class tipoUsuario(models.Model):
     IdTipoUsuario = models.AutoField(primary_key=True, )

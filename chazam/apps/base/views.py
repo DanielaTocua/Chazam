@@ -1,14 +1,11 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
+from django.utils.decorators import method_decorator
 from .models import *
 from .forms import *
 from .filters import *
-=======
-from .models import comensales, chaza, DuenoChaza
-from .forms import comensalesForm, chazaForm
->>>>>>> 78b695f66a59f7b64f73bd515a49f380b3712b10
 from django.contrib import messages
+from django.views.generic.detail import DetailView
 
 # Vistas
 def login(request):
@@ -139,3 +136,9 @@ def filtroChazas(request):
     chazas = filtro.qs
     context = {"filtro": filtro, "chazas":chazas}
     return render(request,"catalogo.html",context)
+
+
+@method_decorator(login_required, name='dispatch')
+class chaza_view(DetailView):
+    template_name = 'chazaCustom.html'
+    model = chaza
