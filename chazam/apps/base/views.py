@@ -1,13 +1,13 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
+
 from .models import *
 from .forms import *
 from .filters import *
-=======
+
 from .models import comensales, chaza, DuenoChaza
 from .forms import comensalesForm, chazaForm
->>>>>>> 78b695f66a59f7b64f73bd515a49f380b3712b10
+
 from django.contrib import messages
 
 # Vistas
