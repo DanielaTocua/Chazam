@@ -9,7 +9,8 @@
     <!--Pone el ícono de la página en el navegador-->
     <link href="{% static 'styles.css' %}" rel="stylesheet">
     <!--LLama la hoja de estilos de CSS-->
-    <script src="{% static 'script.js' %}"></script><!--LLama el archivo de JavaScript-->
+    <script src="{% static 'script.js' %}"></script>
+    <!--LLama el archivo de JavaScript-->
   </head>
 
   <body>
@@ -56,14 +57,16 @@
 
       {% for chaza in chazas %}
       <div class="cardsChaza-Box">
-        <div class="cardChaza-title">
-          <font color="Red" size=5>{{chaza.NombreChaza}}</font> <br>
-          <font color="Red" size=4>Valoración: {{chaza.Puntuacion}}</font>
-        </div>
-        <div class="cardChaza-desc" >
-          <font color="black" size=3>{{chaza.Descripcion}}</font> <br>
-          <font color="black" size=3>Ubicación: {{chaza.Ubicacion}}</font>
-        </div>
+        <a href="/chaza/{{chaza.slug}}">
+          <div class="cardChaza-title">
+            <font color="Red" size=5>{{chaza.NombreChaza}}</font> <br>
+            <font color="Red" size=4>Valoración: {{chaza.Puntuacion}}</font>
+          </div>
+          <div class="cardChaza-desc">
+            <font color="black" size=3>{{chaza.Descripcion}}</font> <br>
+            <font color="black" size=3>Ubicación: {{chaza.Ubicacion}}</font>
+          </div>
+        </a>
       </div>
       {% endfor %}
 
