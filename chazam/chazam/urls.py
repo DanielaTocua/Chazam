@@ -29,7 +29,8 @@ urlpatterns = [
     path('catalogo/',views.filtroChazas),
     path('formChaza/',views.form_chaza),
     path('eraseChaza/',views.eraseChaza),
-    path('chaza/<slug:slug>/',views.chaza_view.as_view(), name = 'chazaCustom')
+    path('chaza/<slug:slug>/',views.chaza_view.as_view(), name = 'chazaCustom'),
+    path('resenaChaza/' , views.form_resena)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

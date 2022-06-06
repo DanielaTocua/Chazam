@@ -151,3 +151,25 @@ def filtroChazas(request):
 class chaza_view(DetailView):
     template_name = 'chazaCustom.html'
     model = chaza
+
+def formResena(request):
+    idUser = str(request.user.id) # id del usuario que hace la reseña
+    return render(request, 'uploadChazaInfo.html')
+
+@login_required()
+def form_resena(request): 
+    if request.method == 'POST':
+        # obj = comensales(request.user.id)
+        
+        form = resenasForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect()
+        else:
+            context = {'form': form }      
+            return render(request, 'resenas.html', context)
+    else:
+
+        form = resenasForm(request.POST)
+        context = {'form': form}
+        return render(request, 'resenas.html', context)
