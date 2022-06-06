@@ -433,6 +433,25 @@ button{
   float: right;
 }
 
+.goBackButton{
+  background-color: rgb(12, 139, 161);
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+  width: 140px;
+  margin-top:0px;
+  margin-left: -40px;
+  margin-right:-100px;
+  position: sticky;
+  float: left;
+}
+
+.goBack-Text{
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  margin: 2px 0 2px 0;
+  text-align: center;
+}
+
 .plus-logo{
   width:35px;
   float:left;
