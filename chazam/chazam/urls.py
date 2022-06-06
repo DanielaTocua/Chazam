@@ -26,19 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('formComensales/',views.form_comensales),
-<<<<<<< Updated upstream
     path('catalogo/',views.filtroChazas),
     path('formChaza/',views.form_chaza),
-<<<<<<< HEAD
-    path('eraseChaza/',views.eraseChaza), 
-    path('resenaChaza/' , views.formResena)
-=======
     path('eraseChaza/',views.eraseChaza),
     path('chaza/<slug:slug>/',views.chaza_view.as_view(), name = 'chazaCustom')
->>>>>>> 59a1aed8ec84f7459428a5c7767b1601715fb855
-=======
-    path('resenas/',views.form_resena)
->>>>>>> Stashed changes
 ]
 
 urlpatterns += staticfiles_urlpatterns()
