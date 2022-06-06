@@ -1,13 +1,9 @@
 from django.db import models
 from django.forms import ModelForm
-<<<<<<< Updated upstream
 import django_filters
 from .models import *
 from django.forms import ModelForm, TextInput,Textarea
 from .models import comensales, chaza
-=======
-from .models import *
->>>>>>> Stashed changes
 
 
 class comensalesForm(ModelForm):
@@ -15,7 +11,6 @@ class comensalesForm(ModelForm):
         model = comensales
         fields = ['NombreUsuario', 'IdTipoUsuario']
 
-<<<<<<< Updated upstream
 
 class chazaForm(ModelForm):
     class Meta:
@@ -38,9 +33,3 @@ class resenasForm(ModelForm):
         model = comentarios
         fields = ['IdChaza',  'DescripcionComentario', 'PuntuacionDada']
         
-=======
-class resenasForm(ModelForm):
-    class Meta:
-        model = comentarios
-        fields = ['DescripcionComentario', 'PuntuacionDada']
->>>>>>> Stashed changes
