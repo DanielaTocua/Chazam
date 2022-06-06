@@ -40,8 +40,9 @@ class comensales(models.Model):
 class comentarios(models.Model):
     IdComentario = models.AutoField(primary_key=True)
     IdComensal = models.ForeignKey(comensales, on_delete=models.CASCADE)
-    IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
-    DescripcionComentario= models.TextField(max_length=400, blank=False, null=False)
+    IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE, verbose_name="Nombre de la chaza")
+    DescripcionComentario= models.TextField(max_length=400, blank=False, null=False, verbose_name="Escribe tu reseña")
+    PuntuacionDada = models.FloatField(blank=False, default=0, verbose_name="Puntuación")
     def __str__(self):
         return self.IdComentario + "." + self.DescripcionComentario
 

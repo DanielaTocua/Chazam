@@ -27,3 +27,9 @@ class chazaForm(ModelForm):
                 'class': "form-control1"
                 })
         }
+
+class resenasForm(ModelForm):
+    class Meta:
+        model = comentarios
+        fields = ['IdChaza',  'DescripcionComentario', 'PuntuacionDada']
+        

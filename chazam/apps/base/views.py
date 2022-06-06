@@ -1,14 +1,9 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
 from .models import *
 from .forms import *
 from .filters import *
-=======
-from .models import comensales, chaza, DuenoChaza
-from .forms import comensalesForm, chazaForm
->>>>>>> 78b695f66a59f7b64f73bd515a49f380b3712b10
-from django.contrib import messages
+
 
 # Vistas
 def login(request):
@@ -56,7 +51,7 @@ def form_comensales(request):
          context = {'form': form}
          return render(request, 'finalSignup.html', context)
 
-def form_chaza(request ):
+def form_chaza(request):
     idActual = str(request.user.id)
     if request.method == 'POST':
         #Revisa si el dueño ya tiene una chaza creada
@@ -139,3 +134,22 @@ def filtroChazas(request):
     chazas = filtro.qs
     context = {"filtro": filtro, "chazas":chazas}
     return render(request,"catalogo.html",context)
+
+@login_required()
+def formResena(request):
+    idUser = str(request.user.id) # id del usuario que hace la reseña
+    
+    if request.method == 'POST':
+        # obj = comensales(request.user.id)
+        
+        form = resenasForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect()
+        else:
+            context = {'form': form }      
+            return render(request, 'resenas.html', context)
+    else:
+        form = resenasForm(request.POST)
+        context = {'form': form}
+        return render(request, 'resenas.html', context)
