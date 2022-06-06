@@ -64,13 +64,3 @@ class DuenoChaza(models.Model):
 #     NombreProducto = models.CharField(max_length=30, blank=False, null=False)
 #     Precio = models.FloatField(blank=False, null=False)
 #     Imagen = models.ImageField()
-
-
-
-
-
-    
-
-
-
-    

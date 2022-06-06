@@ -22,7 +22,7 @@ class chazaForm(ModelForm):
                 }),
             'Descripcion': Textarea(attrs={
                 'class': "form-control2"
-                }), 
+                }),
             'Ubicacion': TextInput(attrs={
                 'class': "form-control1"
                 })
@@ -32,4 +32,3 @@ class resenasForm(ModelForm):
     class Meta:
         model = comentarios
         fields = ['IdChaza',  'DescripcionComentario', 'PuntuacionDada']
-        
