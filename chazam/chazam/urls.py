@@ -28,8 +28,13 @@ urlpatterns = [
     path('formComensales/',views.form_comensales),
     path('catalogo/',views.filtroChazas),
     path('formChaza/',views.form_chaza),
+<<<<<<< HEAD
     path('eraseChaza/',views.eraseChaza), 
     path('resenaChaza/' , views.formResena)
+=======
+    path('eraseChaza/',views.eraseChaza),
+    path('chaza/<slug:slug>/',views.chaza_view.as_view(), name = 'chazaCustom')
+>>>>>>> 59a1aed8ec84f7459428a5c7767b1601715fb855
 ]
 
 urlpatterns += staticfiles_urlpatterns()

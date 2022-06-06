@@ -1,9 +1,18 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+<<<<<<< HEAD
 from .models import *
 from .forms import *
 from .filters import *
 
+=======
+from django.utils.decorators import method_decorator
+from .models import *
+from .forms import *
+from .filters import *
+from django.contrib import messages
+from django.views.generic.detail import DetailView
+>>>>>>> 59a1aed8ec84f7459428a5c7767b1601715fb855
 
 # Vistas
 def login(request):
@@ -129,9 +138,19 @@ def eraseChaza(request):
 
 @login_required()
 def filtroChazas(request):
+    #Mira si el usuario actual es dueño o comensal
+    idActual = str(request.user.id)
+    user_is_owner = False
+    try:
+        customer = comensales.objects.get(IdComensal_id = idActual)
+        if customer.IdTipoUsuario_id == 2:
+            user_is_owner = True
+    except:
+        pass
     chazas = chaza.objects.all()
     filtro = FiltroChazas(request.GET, queryset=chazas)
     chazas = filtro.qs
+<<<<<<< HEAD
     context = {"filtro": filtro, "chazas":chazas}
     return render(request,"catalogo.html",context)
 
@@ -153,3 +172,13 @@ def formResena(request):
         form = resenasForm(request.POST)
         context = {'form': form}
         return render(request, 'resenas.html', context)
+=======
+    context = {"filtro": filtro, "chazas":chazas, 'user_is_owner': user_is_owner}
+    return render(request,"catalogo.html",context)
+
+
+@method_decorator(login_required, name='dispatch')
+class chaza_view(DetailView):
+    template_name = 'chazaCustom.html'
+    model = chaza
+>>>>>>> 59a1aed8ec84f7459428a5c7767b1601715fb855
