@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 from .models import *
 from .forms import *
@@ -10,6 +11,10 @@ from django.utils.decorators import method_decorator
 from .models import *
 from .forms import *
 from .filters import *
+=======
+from .models import comensales
+from .forms import *
+>>>>>>> Stashed changes
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 >>>>>>> 59a1aed8ec84f7459428a5c7767b1601715fb855
@@ -110,6 +115,7 @@ def form_chaza(request):
 
 @login_required
 def uploadChazaInfo(request):
+<<<<<<< Updated upstream
     #Mira si el usuario actual es dueño o comensal
     idActual = str(request.user.id)
     user_is_owner = False
@@ -157,6 +163,12 @@ def filtroChazas(request):
 @login_required()
 def formResena(request):
     idUser = str(request.user.id) # id del usuario que hace la reseña
+=======
+    return render(request, 'uploadChazaInfo.html')
+
+@login_required()
+def form_resena(request, chazapk):
+>>>>>>> Stashed changes
     
     if request.method == 'POST':
         # obj = comensales(request.user.id)
@@ -169,6 +181,7 @@ def formResena(request):
             context = {'form': form }      
             return render(request, 'resenas.html', context)
     else:
+<<<<<<< Updated upstream
         form = resenasForm(request.POST)
         context = {'form': form}
         return render(request, 'resenas.html', context)
@@ -182,3 +195,8 @@ class chaza_view(DetailView):
     template_name = 'chazaCustom.html'
     model = chaza
 >>>>>>> 59a1aed8ec84f7459428a5c7767b1601715fb855
+=======
+        form = resenasForm()
+        context = {'form': form}
+        return render(request, 'resenas.html', context)
+>>>>>>> Stashed changes
