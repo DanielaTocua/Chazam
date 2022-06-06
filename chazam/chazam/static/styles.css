@@ -169,7 +169,7 @@ button{
   color: white;
 }
 
-h1{
+.NameText-Profile{
   font-size: 38px;
   margin-bottom: 0;
 }
@@ -405,6 +405,7 @@ h1{
   margin-bottom:-55px;
   float:right;
   visibility: hidden;
+  z-index: 10;
 }
 
 .confirmChazaDeletion-Box {
