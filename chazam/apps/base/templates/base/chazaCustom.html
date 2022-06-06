@@ -31,11 +31,17 @@
             <p class ="logout-Text">Cerrar sesión</p>
           </a>
         </div>
-      </div>     
-      <h1>{{ object.NombreChaza }}</h1>
-      <p> {{object.Puntuacion}}</p>
-      <p> {{object.Descripcion}}</p>
-      <p> {{object.Ubicacion}}</p>
+      </div>  
+      <div class="profileChaza-Box">  
+        <a class = "rateChazaButton">
+          <img src="{% static 'Pictures/plus.png' %}" class="plus-logo" alt="Plus sign" />
+          <p class = "rate-Text">Reseña esta chaza</p>
+        </a>
+        <h1>{{ object.NombreChaza }}</h1>
+        <p class = "LocationText-Profile">Ubicacion:  {{object.Ubicacion}}</p>
+        <p class ="LocationText-Profile"> Calificación: {{object.Puntuacion}} de 5</p>
+        <p> {{object.Descripcion}}</p>
+      </div> 
 
       <div class ="footerSpace"></div>
       <div class= "footer">

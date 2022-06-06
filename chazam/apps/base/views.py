@@ -131,10 +131,19 @@ def eraseChaza(request):
 
 @login_required()
 def filtroChazas(request):
+    #Mira si el usuario actual es dueño o comensal
+    idActual = str(request.user.id)
+    user_is_owner = False
+    try:
+        customer = comensales.objects.get(IdComensal_id = idActual)
+        if customer.IdTipoUsuario_id == 2:
+            user_is_owner = True
+    except:
+        pass
     chazas = chaza.objects.all()
     filtro = FiltroChazas(request.GET, queryset=chazas)
     chazas = filtro.qs
-    context = {"filtro": filtro, "chazas":chazas}
+    context = {"filtro": filtro, "chazas":chazas, 'user_is_owner': user_is_owner}
     return render(request,"catalogo.html",context)
 
 

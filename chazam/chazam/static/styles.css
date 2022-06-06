@@ -32,6 +32,13 @@ button{
   text-align: center;
 }
 
+.rate-Text{
+  font-size: 18px;
+  color: rgb(146, 18, 18);
+  margin: 7px 0 7px 0;
+  text-align: center;
+}
+
 .logout-Text{
   font-size: 19px;
   color: white;
@@ -151,6 +158,33 @@ button{
 .registerChaza-Box {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.705);
+  padding: 30px 70px 30px 70px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 700px;
+  font-size: 20px;
+  color: white;
+}
+
+h1{
+  font-size: 38px;
+  margin-bottom: 0;
+}
+
+.LocationText-Profile{
+  margin-top:0;
+  margin-bottom: 0;
+  font-size: 22px;
+  color:rgb(255, 187, 187);
+  font-weight: 600;
+}
+
+.profileChaza-Box {
+  text-align: left;
+  background-color: rgba(214, 74, 74, 0.887);
   padding: 30px 70px 30px 70px;
   border-radius: 10px;
   margin-left: auto;
@@ -387,6 +421,22 @@ button{
   visibility: hidden;
 }
 
+.rateChazaButton {
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding: 5px 10px 5px 20px;
+  width: 215px;
+  margin-top:0px;
+  margin-right: -30px;
+  position: sticky;
+  float: right;
+}
+
+.plus-logo{
+  width:35px;
+  float:left;
+}
+
 .yesEraseChazaButton {
   display: block;
   float: left;
@@ -608,7 +658,7 @@ a{
 }
 
 .footerSpace{
-  height: 100px;
+  height: 130px;
 }
 
 .footer-Content{
