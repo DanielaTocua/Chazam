@@ -7,8 +7,21 @@
         {% load static %} 
         <link rel="icon" href="{% static 'Pictures/chazamIcon.ico' %}" /><!--Pone el ícono de la página en el navegador-->
         <link href="{% static 'styles.css' %}" rel="stylesheet"><!--LLama la hoja de estilos de CSS-->
-        <script src="{% static 'script.js' %}"></script>
       </head>
+      <div id="popup-1">
+        <div class="popup-content">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class = "signup-Box2">
+              {{ form.as_p }}
+            </div>
+            
+            <input type = "submit" class = "registerButton" value ="Continuar">
+
+          </form>
+          <button id="close-popup-1">Cerrar</button>
+        </div>
+      </div>
     
     <body> 
       <div class="header-Box">
@@ -33,7 +46,7 @@
         </div>
       </div>  
       <div class="profileChaza-Box">  
-        <a class = "rateChazaButton">
+        <a class = "rateChazaButton" id="open-popup-1">
           <img src="{% static 'Pictures/plus.png' %}" class="plus-logo" alt="Plus sign" />
           <p class = "rate-Text">Reseña esta chaza</p>
         </a>
@@ -51,4 +64,5 @@
         </div>
       </div>
     </body>
+    <script src="{% static 'script.js' %}"></script>
     </html>

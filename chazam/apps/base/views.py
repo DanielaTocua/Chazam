@@ -6,7 +6,7 @@ from .forms import *
 from .filters import *
 from django.contrib import messages
 from django.views.generic.detail import DetailView
-
+from django.views.generic.edit import FormMixin
 # Vistas
 def login(request):
     return render(request, 'goToLogin.html')
@@ -151,25 +151,35 @@ def filtroChazas(request):
 class chaza_view(DetailView):
     template_name = 'chazaCustom.html'
     model = chaza
+    
 
-def formResena(request):
-    idUser = str(request.user.id) # id del usuario que hace la reseña
-    return render(request, 'uploadChazaInfo.html')
-
-@login_required()
-def form_resena(request): 
-    if request.method == 'POST':
-        # obj = comensales(request.user.id)
-        
+    def post(self,request,*args, **kwargs): 
+        self.object = self.get_object()
         form = resenasForm(request.POST)
+        context = self.get_context_data(object = self.object, form = form) 
         if form.is_valid():
+            try:
+                comentario = comentarios.objects.get(IdComensal_id = request.user.id, IdChaza_id = self.object.IdChaza )
+            except:
+                comentario =  comentarios(IdChaza_id=self.object.IdChaza, IdComensal_id = request.user.id)  
+            form = resenasForm(request.POST, instance = comentario)
+            comentario.save()
             form.save()
-            return redirect()
-        else:
-            context = {'form': form }      
-            return render(request, 'resenas.html', context)
-    else:
+        return self.render_to_response(context)
+        
+    def get(self,request,*args, **kwargs):
+        self.object = self.get_object()
+        try:
+            comentario = comentarios.objects.get(IdComensal_id = request.user.id, IdChaza_id = self.object.IdChaza )
+            form = resenasForm(initial={'DescripcionComentario': comentario.DescripcionComentario, 'PuntuacionDada': comentario.PuntuacionDada})
+        except:
+            form = resenasForm()
+            
+        
+        context = self.get_context_data(object = self.object, form = form)
+        return self.render_to_response(context)
 
-        form = resenasForm(request.POST)
-        context = {'form': form}
-        return render(request, 'resenas.html', context)
+    def get_context_data(self,form, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context['form'] = form
+            return context

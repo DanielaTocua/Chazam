@@ -7,3 +7,17 @@ function showPopUp(popupId) {
 		document.getElementById(popupId).style.visibility= "visible";
 	}
 }
+
+
+// customChaza
+let popup1 = document.getElementById("popup-1")
+let openPopup1 = document.getElementById("open-popup-1")
+let closePopup1 = document.getElementById('close-popup-1')
+
+openPopup1.addEventListener('click', () => {
+	popup1.style.display = "block";
+})
+
+closePopup1.addEventListener('click', () => {
+	popup1.style.display = "none";
+})

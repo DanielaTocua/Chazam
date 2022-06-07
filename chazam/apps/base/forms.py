@@ -31,4 +31,4 @@ class chazaForm(ModelForm):
 class resenasForm(ModelForm):
     class Meta:
         model = comentarios
-        fields = ['IdChaza',  'DescripcionComentario', 'PuntuacionDada']
+        fields = ['DescripcionComentario', 'PuntuacionDada']
