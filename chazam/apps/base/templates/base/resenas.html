@@ -12,18 +12,18 @@
     
     <body>      
         {% load socialaccount %} {% providers_media_js %} {% load i18n %}
-
+      <main>
         <div class="signup-Box">
           <img src="{% static 'Pictures/chazamLogo.png' %}"class="Chazam-logo" alt="Chazam logo">
           <p class = "finishRegister-Text">Reseña una chaza</p>
           
         </div>
-        <div class ="footerSpace"></div>
-        <div class= "footer">
-            <div class = "footer-Content">
-              <p class = "footer-Text">Desarrollado por</p>
-              <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
-            </div>
-        </div>
+      </main>
+        <footer>
+          <div class = "footer-Content">
+            <p class = "footer-Text">Desarrollado por</p>
+            <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
+          </div>
+        </footer>
     </body>
     </html>

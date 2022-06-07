@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
+
 body {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   background-image: url('Pictures/background.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  margin: 0;
+}
+
+main{
+  min-height: calc(100vh - 140px);
 }
 
 p{
@@ -94,11 +99,11 @@ button{
 .login-Box {
   text-align: center;
   background-color: rgba(5,22,30,0.6);
-  padding: 30px 10px 50px 10px;
+  padding: 40px 10px 60px 10px;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 120px;
+  margin-top: 45px;
   width: 420px;
   font-size: 22px;
   color: white;
@@ -111,7 +116,7 @@ button{
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 70px;
+  margin-top: 45px;
   width: 380px;
   font-size: 22px;
   color: white;
@@ -120,11 +125,11 @@ button{
 .logout-Page-Box{
   text-align: center;
   background-color: rgba(13, 117, 120, 0.732);
-  padding: 30px 30px 50px 30px;
+  padding: 45px 30px 50px 30px;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 120px;
+  margin-top: 45px;
   width: 420px;
   font-size: 22px;
   color: white;
@@ -137,7 +142,7 @@ button{
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 50px;
   width: 250px;
   font-size: 20px;
   color: white;
@@ -284,8 +289,35 @@ button{
   transition: 0.8s ease;
 }
 
+
 .cardsChaza-Box:hover .cardChaza-desc {
   opacity: 1;
+}
+
+.chazaTitle{
+  color:#7c2424;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 3px 0 0 0;
+}
+
+.chazaPuntuacion{
+  color:#d46868;
+  font-size: 18px;
+  margin: 0 0 0 0;
+}
+
+.chazaUbicacion{
+  color:#12879c;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 0 0;
+}
+
+.chazaDescripcion{
+  color:#000000;
+  font-size: 16px;
+  margin: 5px 0 0 0;
 }
 
 .signup-Box3 {
@@ -431,6 +463,37 @@ button{
   margin-right: -30px;
   position: sticky;
   float: right;
+}
+
+.goBackButton{
+  background-color: rgb(12, 139, 161);
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+  width: 140px;
+  margin-top:0px;
+  margin-left: -40px;
+  margin-right:-100px;
+  position: sticky;
+  float: left;
+}
+
+.goBackButton2{
+  background-color: rgb(12, 139, 161);
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+  width: 80px;
+  margin-top:-29px;
+  margin-left: -10px;
+  margin-right:-150px;
+  position: sticky;
+  float: left;
+}
+
+.goBack-Text{
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  margin: 2px 0 2px 0;
+  text-align: center;
 }
 
 .plus-logo{
@@ -648,17 +711,12 @@ a{
   height: 480px;
 }
 
-.footer{
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+footer{
+  margin-top:15px;
+  height: 75px;
   padding: 10px 0 10px 0;
   background-color: rgba(0, 0, 0, 0.767);
   color: white;
-}
-
-.footerSpace{
-  height: 130px;
 }
 
 .footer-Content{

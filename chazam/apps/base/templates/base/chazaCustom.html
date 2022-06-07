@@ -24,6 +24,7 @@
       </div>
     
     <body> 
+      <main>
       <div class="header-Box">
         <div class ="title-Box">
           <a class = "mainPage-Link" href="/">
@@ -55,14 +56,14 @@
         <p class ="LocationText-Profile"> Calificación: {{object.Puntuacion}} de 5</p>
         <p> {{object.Descripcion}}</p>
       </div> 
+    </main>
 
-      <div class ="footerSpace"></div>
-      <div class= "footer">
-        <div class = "footer-Content">
-          <p class = "footer-Text">Desarrollado por</p>
-          <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
-        </div>
+    <footer>
+      <div class = "footer-Content">
+        <p class = "footer-Text">Desarrollado por</p>
+        <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
       </div>
+    </footer>
     </body>
     <script src="{% static 'script.js' %}"></script>
     </html>

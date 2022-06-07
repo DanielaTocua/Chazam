@@ -8,18 +8,19 @@
     {% endblock %}
   </head>
   <body>
+    <main>
     {% block body %}
     {% block content %}
     {% endblock %}
     {% endblock %}
     {% block extra_body %}
     {% endblock %}
-    <div class ="footerSpace"></div>
-    <div class= "footer">
+  </main>
+    <footer>
       <div class = "footer-Content">
         <p class = "footer-Text">Desarrollado por</p>
         <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
       </div>
-    </div>
+    </footer>
   </body>
 </html>
