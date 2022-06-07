@@ -5,7 +5,7 @@ from .models import *
 from django.forms import ModelForm, TextInput,Textarea,Select
 from .models import comensales, chaza
 from django import forms
-from django_starfield import Stars
+
 
 
 class comensalesForm(ModelForm):
