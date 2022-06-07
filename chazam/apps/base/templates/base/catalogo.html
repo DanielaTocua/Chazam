@@ -58,6 +58,20 @@
     </form>
 
     <div class="filtro-Box3">
+      <div class="WrappedPhotoDescription"> 
+        
+        <div class="articleLeft charWrapperLeft">
+          <div>
+            {{filtro.form.Descripcion.label_tag}}
+            {{filtro.form.Descripcion}}
+          </div>
+          <div>
+            {{filtro.form.Puntuacion.label_tag}}
+            {{filtro.form.Puntuacion}}
+          </div>
+          
+        </div>
+      </div>
 
       {% for chaza in chazas %}
       <div class="cardsChaza-Box">
@@ -74,28 +88,7 @@
         </a>
       </div>
       {% endfor %}
-
-          </article><!-- Cada artículo habla acerca de un personaje -->
-            <article class="articleRight charWrapperLeft">
-              {% for chaza in chazas %}
-              <div class="cardsChaza-Box">
-                <a href = "../chaza/{{chaza.slug}}">
-                <div class="cardChaza-title">
-                  <p class = "chazaTitle">{{chaza.NombreChaza}}</p>
-                  <p class = "chazaPuntuacion">Valoración: {{chaza.Puntuacion}}</p>
-                </div>
-                <div class="cardChaza-desc" >
-                  <p class = "chazaUbicacion">Ubicación: {{chaza.Ubicacion}}</p>
-                  <p class = "chazaDescripcion">{{chaza.Descripcion}}</p>
-                </div>
-                </a>
-              </div>
-              {% endfor %}
-        
-            </div>
-            </article><!-- Cada artículo habla acerca de un personaje -->
-        </div><!-- Cada uno de estos contenedores almacena un personaje -->
-                
+      
     </div> <!-- Este contenedor guarda un artículo y una cuadrícula con los habitantes y algunas imágenes que los representan -->
   
 
