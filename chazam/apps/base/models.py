@@ -9,10 +9,17 @@ from django.db.models import IntegerField, Model
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
+class categoria(models.Model):
+    IdCategoria = models.AutoField(primary_key=True)
+    NombreCategoria = models.CharField(max_length=20, blank=False, null=False)
+    def __str__(self):
+        return self.NombreCategoria
+
 class chaza(models.Model):
     IdChaza = models.AutoField(primary_key=True)
     NombreChaza = models.CharField(max_length=40, blank=False, null=False,  verbose_name="Nombre Chaza")
     Puntuacion = models.FloatField(blank=False, null=False)
+    IdCategoria = models.ForeignKey(categoria, on_delete=models.CASCADE, verbose_name="categoria", default=-1)
     Descripcion = models.TextField(blank=False, null=False,  verbose_name="Descripción",)
     Ubicacion = models.CharField(max_length=200, blank=False, null=False,  verbose_name="Ubicación",)
     slug= models.SlugField(max_length=255, unique=True, default="default")
@@ -29,12 +36,7 @@ class tipoUsuario(models.Model):
     def __str__(self):
         return self.NombreTipoUsuario
 
-class categoria(models.Model):
-    IdCategoria = models.AutoField(primary_key=True)
-    IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
-    NombreCategoria = models.CharField(max_length=20, blank=False, null=False)
-    def __str__(self):
-        return self.NombreCategoria
+
 
 
 class comensales(models.Model):
