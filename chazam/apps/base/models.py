@@ -1,11 +1,12 @@
 from turtle import pos
-from django.db import models
-from django.forms import IntegerField
+from django.db import models 
+from django.forms import IntegerField 
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.text import slugify
 from django.db.models import IntegerField, Model
+from django.db.models import Avg
 
 
 # Create your models here.
@@ -44,6 +45,9 @@ class chaza(models.Model):
         self.slug = slugify(self.NombreChaza)
         super(chaza, self).save(*args, **kwargs)
 
+    
+
+
 # class chazaCategoria(models.Model):
 #     IdCategoria = models.ForeignKey(categoria, on_delete=models.CASCADE)
 #     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
@@ -62,7 +66,6 @@ class comensales(models.Model):
     RegistroFinal = models.IntegerField(default=0)
     def __str__(self):
         return self.NombreUsuario
-
 class comentarios(models.Model):
     RATING_RANGE = (
         (1, 1),
@@ -87,6 +90,14 @@ class DuenoChaza(models.Model):
         return self.IdDuenoChaza
 
 
+@receiver(post_save, sender=comentarios)
+def update_Puntuacion(sender,instance, **kwargs):
+    pkChaza = instance.IdChaza_id
+    puntaje = comentarios.objects.filter(IdChaza_id = pkChaza).aggregate( Avg('PuntuacionDada'))
+    chazaUpdate = chaza.objects.get(IdChaza= pkChaza)
+
+    chazaUpdate.Puntuacion = puntaje['PuntuacionDada__avg']
+    chazaUpdate.save()
 # class Producto(models.Model):
 #     IdProducto = models.AutoField(primary_key=True)
 #     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
