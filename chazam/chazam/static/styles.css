@@ -282,6 +282,7 @@ button{
   top: 0;
   border-top-right-radius: 4px;
   opacity: 0;
+  width: 85%;
   height: 60px;
   overflow-y: auto;
   padding: 20px 10px 20px 0px;
@@ -744,3 +745,48 @@ footer{
 	width: 400px;
 	top: 5vh;
 }
+
+.WrappedPhotoDescription{
+  display: grid;
+  grid-template-columns: 1fr 4fr  ;
+  grid-template-rows: 2fr ;
+  margin-left: -40%;  
+  
+  
+  
+  /* Cuadrícula para poner fotos y descripciones con texto */
+}
+
+.charWrapperRight,.charWrapperLeft{
+  display: inline-block;
+  height: min-content;
+  
+  
+  /* Los contenedores de personajes se muestran en forma de inline block para ajustarse a la pantalla */
+}
+
+.articleRight{
+  float: right;
+  margin-top: 1.6%;
+  margin-right: 1.6%;
+  margin-left: 0%;
+  margin-bottom: 0px;
+  padding-left: 10%;
+  /* background-color:rgba(255, 255, 255, 0.8); */
+  border-radius: 10px ;
+  vertical-align: top;
+  /* Le da formato a los article de la página. ArticleRight evita que ocupen todo el espacio horizontal de la página, moviéndose hacia la derecha */
+}
+
+.articleLeft{
+  position:static;
+  display: inline-block;
+  /* Permite que más de un elemento ocupe la línea */
+  /* margin: 1.6%; */
+  /* margin-right: 20%; */
+  padding-right: -20%;
+  border-radius: 10px ;
+  
+  /* Le da formato a los article de la página. ArticleLeft evita que ocupen todo el espacio horizontal de la página, moviéndose hacia la izquierda */
+}
+
