@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+chazam/apps/base/migrations/0002_alter_comentarios_puntuaciondada.py
+chazam/apps/base/migrations/0001_initial.py
+chazam/apps/base/migrations/0002_chaza_slug.py
+chazam/apps/base/migrations/0003_alter_comentarios_puntuaciondada.py
+.gitignore
+chazam/apps/base/migrations/0002_chaza_slug.py
+.gitignore

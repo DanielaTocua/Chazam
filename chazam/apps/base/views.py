@@ -87,6 +87,7 @@ def form_chaza(request ):
                 obj2.IdComensal_id = request.user.id
                 obj2.save()
                 return redirect(mainPage)
+            
     else:
         idActual = str(request.user.id)
         #Cuando se abre, trata de buscar los datos de la chaza
@@ -96,8 +97,8 @@ def form_chaza(request ):
             obj = chaza.objects.get(IdChaza = obj0.IdChaza_id)  
             tempName = obj.NombreChaza
             tempDescription = obj.Descripcion
-            tempUbicacion = obj.Ubicacion
-            form = chazaForm(initial={'NombreChaza': tempName, 'Descripcion': tempDescription, 'Ubicacion': tempUbicacion})
+            tempUbicacion = obj.IdUbicacion
+            form = chazaForm(initial={'NombreChaza': tempName, 'Descripcion': tempDescription, 'IdUbicacion': tempUbicacion})
             user_has_chaza = True
         #Si no hay datos de la chaza, crea el form por defecto
         except:
@@ -144,10 +145,9 @@ def filtroChazas(request):
 
 @method_decorator(login_required, name='dispatch')
 class chaza_view(DetailView):
+    #self.object --> chaza a reseñar
     template_name = 'chazaCustom.html'
     model = chaza
-    
-
     def post(self,request,*args, **kwargs): 
         self.object = self.get_object()
         form = resenasForm(request.POST)
