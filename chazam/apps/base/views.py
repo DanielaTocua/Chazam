@@ -7,9 +7,7 @@ from .filters import *
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormMixin
-# Vistas
-def login(request):
-    return render(request, 'goToLogin.html')
+
 def userIsOwner(userId):
     isOwner = False
     try:
@@ -19,6 +17,11 @@ def userIsOwner(userId):
     except:
         pass
     return isOwner
+
+# Vistas
+def login(request):
+    return render(request, 'goToLogin.html')
+    
 def finalSignup(request):
     idActual = str(request.user.id)
     o = comensales.objects.raw("SELECT * from base_comensales where RegistroFinal = "+idActual)
@@ -34,7 +37,6 @@ def finalSignup(request):
 def mainPage(request):
     #Mira si el usuario actual es dueño o comensal
     idActual = str(request.user.id)
-
     return render(request, 'mainPage.html', {'user_is_owner': userIsOwner(idActual)})
 
 def form_comensales(request):
@@ -108,10 +110,7 @@ def form_chaza(request ):
 def uploadChazaInfo(request):
     #Mira si el usuario actual es dueño o comensal
     idActual = str(request.user.id)
-    user_is_owner = False
-    customer = comensales.objects.get(IdComensal_id = idActual)
-    if customer.IdTipoUsuario_id == 2:
-        user_is_owner = True
+    user_is_owner = userIsOwner(idActual)
     if user_is_owner:
         return redirect(form_chaza)
     #Si el usuario es comensal, no puede subir una chaza
@@ -136,13 +135,7 @@ def eraseChaza(request):
 def filtroChazas(request):
     #Mira si el usuario actual es dueño o comensal
     idActual = str(request.user.id)
-    user_is_owner = False
-    try:
-        customer = comensales.objects.get(IdComensal_id = idActual)
-        if customer.IdTipoUsuario_id == 2:
-            user_is_owner = True
-    except:
-        pass
+    user_is_owner = userIsOwner(idActual)
     chazas = chaza.objects.all()
     filtro = FiltroChazas(request.GET, queryset=chazas)
     chazas = filtro.qs

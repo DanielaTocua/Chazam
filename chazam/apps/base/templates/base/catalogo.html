@@ -43,7 +43,13 @@
       {% csrf_token %}
       <div class="filtro-Box2">
 
-        {{filtro.form}}
+        {{filtro.form.my_lookup_field.label_tag}}
+        {{filtro.form.my_lookup_field}}
+        <!-- {{filtro.form.NombreChaza.label_tag}}
+        {{filtro.form.NombreChaza}}
+        {{filtro.form.Descripcion.label_tag}}
+        {{filtro.form.Descripcion}} -->
+        
 
 
       </div>
@@ -64,7 +70,7 @@
           <p class = "chazaUbicacion">Ubicación: {{chaza.Ubicacion}}</p>
           <p class = "chazaDescripcion">{{chaza.Descripcion}}</p>
         </div>
-      </a>
+        </a>
       </div>
       {% endfor %}
 
