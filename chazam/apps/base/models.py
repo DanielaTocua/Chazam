@@ -44,6 +44,14 @@ class chaza(models.Model):
         self.slug = slugify(self.NombreChaza)
         super(chaza, self).save(*args, **kwargs)
 
+    def getCategoryName(self):
+        obj = categoria.objects.get(IdCategoria = self.IdCategoria_id)
+        return obj.NombreCategoria
+
+    def getLocationName(self):
+        obj = Ubicaciones.objects.get(IdUbicacion = self.IdUbicacion_id)
+        return obj.NombreUbicacion
+
 # class chazaCategoria(models.Model):
 #     IdCategoria = models.ForeignKey(categoria, on_delete=models.CASCADE)
 #     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)

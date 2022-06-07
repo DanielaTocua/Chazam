@@ -5,8 +5,6 @@ from .models import *
 from django.forms import ModelForm, TextInput,Textarea,Select
 from .models import comensales, chaza
 from django import forms
-from django_starfield import Stars
-
 
 class comensalesForm(ModelForm):
     class Meta:
@@ -23,11 +21,14 @@ class chazaForm(ModelForm):
             'NombreChaza': TextInput(attrs={
                 'class': "form-control"
                 }),
-            'Descripcion': Textarea(attrs={
-                'class': "form-control2"
-                }),
             'IdUbicacion': Select(attrs={
                 'class': "form-control1"
+                }),
+            'IdCategoria': Select(attrs={
+                'class': "form-control2"
+                }),
+            'Descripcion': Textarea(attrs={
+                'class': "form-control3"
                 })
         }
         

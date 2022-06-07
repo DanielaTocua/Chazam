@@ -57,7 +57,8 @@
           <p class = "rate-Text">Reseña esta chaza</p>
         </a>
         <h1 class = "NameText-Profile">{{ object.NombreChaza }}</h1>
-        <p class = "LocationText-Profile">Ubicacion:  {{object.Ubicacion}}</p>
+        <p class = "LocationText-Profile">Categoría:  {{object.getCategoryName}}</p>
+        <p class = "LocationText-Profile">Ubicacion:  {{object.getLocationName}}</p>
         <p class ="LocationText-Profile"> Calificación: {{object.Puntuacion}} de 5</p>
         <p> {{object.Descripcion}}</p>
       </div> 

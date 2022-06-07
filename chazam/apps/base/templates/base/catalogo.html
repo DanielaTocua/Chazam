@@ -49,9 +49,6 @@
         {{filtro.form.NombreChaza}}
         {{filtro.form.Descripcion.label_tag}}
         {{filtro.form.Descripcion}} -->
-        
-
-
       </div>
       <input type="image" class="filtroButton" src="{% static 'Pictures/catalogoLogo.png' %}">
 
@@ -64,10 +61,11 @@
         <a href = "../chaza/{{chaza.slug}}">
         <div class="cardChaza-title">
           <p class = "chazaTitle">{{chaza.NombreChaza}}</p>
+          <p class = "chazaPuntuacion">Categoria: {{ chaza.getCategoryName }}</p>
           <p class = "chazaPuntuacion">Valoración: {{chaza.Puntuacion}}</p>
         </div>
         <div class="cardChaza-desc" >
-          <p class = "chazaUbicacion">Ubicación: {{chaza.Ubicacion}}</p>
+          <p class = "chazaUbicacion">Ubicación: {{chaza.getLocationName}}</p>
           <p class = "chazaDescripcion">{{chaza.Descripcion}}</p>
         </div>
         </a>

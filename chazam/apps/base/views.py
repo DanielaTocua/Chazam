@@ -57,6 +57,7 @@ def form_comensales(request):
          context = {'form': form}
          return render(request, 'finalSignup.html', context)
 
+@login_required
 def form_chaza(request ):
     idActual = str(request.user.id)
     if request.method == 'POST':
@@ -98,7 +99,8 @@ def form_chaza(request ):
             tempName = obj.NombreChaza
             tempDescription = obj.Descripcion
             tempUbicacion = obj.IdUbicacion
-            form = chazaForm(initial={'NombreChaza': tempName, 'Descripcion': tempDescription, 'IdUbicacion': tempUbicacion})
+            tempCategoria = obj.IdCategoria
+            form = chazaForm(initial={'NombreChaza': tempName, 'Descripcion': tempDescription, 'IdUbicacion': tempUbicacion, 'IdCategoria': tempCategoria})
             user_has_chaza = True
         #Si no hay datos de la chaza, crea el form por defecto
         except:
