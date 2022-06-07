@@ -8,4 +8,4 @@ class FiltroChazas(django_filters.FilterSet):
             'NombreChaza', 
             'Puntuacion',
             'Descripcion',
-            'Ubicacion']
+            'IdUbicacion']
