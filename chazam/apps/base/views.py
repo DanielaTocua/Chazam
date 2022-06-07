@@ -10,7 +10,15 @@ from django.views.generic.edit import FormMixin
 # Vistas
 def login(request):
     return render(request, 'goToLogin.html')
-
+def userIsOwner(userId):
+    isOwner = False
+    try:
+        customer = comensales.objects.get(userId)
+        if customer.IdTipoUsuario_id == 2:
+            isOwner = True
+    except:
+        pass
+    return isOwner
 def finalSignup(request):
     idActual = str(request.user.id)
     o = comensales.objects.raw("SELECT * from base_comensales where RegistroFinal = "+idActual)
@@ -26,14 +34,8 @@ def finalSignup(request):
 def mainPage(request):
     #Mira si el usuario actual es dueño o comensal
     idActual = str(request.user.id)
-    user_is_owner = False
-    try:
-        customer = comensales.objects.get(IdComensal_id = idActual)
-        if customer.IdTipoUsuario_id == 2:
-            user_is_owner = True
-    except:
-        pass
-    return render(request, 'mainPage.html', {'user_is_owner': user_is_owner})
+
+    return render(request, 'mainPage.html', {'user_is_owner': userIsOwner(idActual)})
 
 def form_comensales(request):
     if request.method == 'POST':
@@ -156,7 +158,7 @@ class chaza_view(DetailView):
     def post(self,request,*args, **kwargs): 
         self.object = self.get_object()
         form = resenasForm(request.POST)
-        context = self.get_context_data(object = self.object, form = form) 
+        context = self.get_context_data(object = self.object, form = form,owner=userIsOwner(request.user.id)) 
         if form.is_valid():
             try:
                 comentario = comentarios.objects.get(IdComensal_id = request.user.id, IdChaza_id = self.object.IdChaza )
@@ -176,10 +178,11 @@ class chaza_view(DetailView):
             form = resenasForm()
             
         
-        context = self.get_context_data(object = self.object, form = form)
+        context = self.get_context_data(object = self.object, form = form, owner=userIsOwner(request.user.id))
         return self.render_to_response(context)
 
-    def get_context_data(self,form, **kwargs):
+    def get_context_data(self,form,owner, **kwargs):
             context = super().get_context_data(**kwargs)
             context['form'] = form
+            context['user_is_owner'] = owner
             return context
