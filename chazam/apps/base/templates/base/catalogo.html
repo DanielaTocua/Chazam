@@ -39,8 +39,11 @@
       </div>
     </div>
 
+
     <form class="filtro-Box" method="GET" action="">
       {% csrf_token %}
+
+    
       <div class="filtro-Box2">
 
         {{filtro.form.my_lookup_field.label_tag}}
@@ -49,9 +52,6 @@
         {{filtro.form.NombreChaza}}
         {{filtro.form.Descripcion.label_tag}}
         {{filtro.form.Descripcion}} -->
-        
-
-
       </div>
       <input type="image" class="filtroButton" src="{% static 'Pictures/catalogoLogo.png' %}">
 
@@ -64,17 +64,42 @@
         <a href = "../chaza/{{chaza.slug}}">
         <div class="cardChaza-title">
           <p class = "chazaTitle">{{chaza.NombreChaza}}</p>
+          <p class = "chazaPuntuacion">Categoria: {{ chaza.getCategoryName }}</p>
           <p class = "chazaPuntuacion">Valoración: {{chaza.Puntuacion}}</p>
         </div>
         <div class="cardChaza-desc" >
-          <p class = "chazaUbicacion">Ubicación: {{chaza.Ubicacion}}</p>
+          <p class = "chazaUbicacion">Ubicación: {{chaza.getLocationName}}</p>
           <p class = "chazaDescripcion">{{chaza.Descripcion}}</p>
         </div>
         </a>
       </div>
       {% endfor %}
 
-    </div>
+          </article><!-- Cada artículo habla acerca de un personaje -->
+            <article class="articleRight charWrapperLeft">
+              {% for chaza in chazas %}
+              <div class="cardsChaza-Box">
+                <a href = "../chaza/{{chaza.slug}}">
+                <div class="cardChaza-title">
+                  <p class = "chazaTitle">{{chaza.NombreChaza}}</p>
+                  <p class = "chazaPuntuacion">Valoración: {{chaza.Puntuacion}}</p>
+                </div>
+                <div class="cardChaza-desc" >
+                  <p class = "chazaUbicacion">Ubicación: {{chaza.Ubicacion}}</p>
+                  <p class = "chazaDescripcion">{{chaza.Descripcion}}</p>
+                </div>
+                </a>
+              </div>
+              {% endfor %}
+        
+            </div>
+            </article><!-- Cada artículo habla acerca de un personaje -->
+        </div><!-- Cada uno de estos contenedores almacena un personaje -->
+                
+    </div> <!-- Este contenedor guarda un artículo y una cuadrícula con los habitantes y algunas imágenes que los representan -->
+  
+
+     
   </main>
     <footer>
       <div class = "footer-Content">
