@@ -5,6 +5,9 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.text import slugify
+from django.db.models import IntegerField, Model
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 # Create your models here.
 class chaza(models.Model):
     IdChaza = models.AutoField(primary_key=True)
@@ -43,11 +46,18 @@ class comensales(models.Model):
         return self.NombreUsuario
 
 class comentarios(models.Model):
+    RATING_RANGE = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5')
+    )
     IdComentario = models.AutoField(primary_key=True)
     IdComensal = models.ForeignKey(comensales, on_delete=models.CASCADE)
     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE, verbose_name="Nombre de la chaza")
     DescripcionComentario= models.TextField(max_length=400, blank=False, null=False, verbose_name="Escribe tu reseña")
-    PuntuacionDada = models.FloatField(blank=False, default=0, verbose_name="Puntuación")
+    PuntuacionDada = models.FloatField(blank=False, default=0, verbose_name="Puntuación",  choices=RATING_RANGE)
     def __str__(self):
         return self.IdComentario + "." + self.DescripcionComentario
 
