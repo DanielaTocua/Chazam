@@ -19,7 +19,7 @@ class chaza(models.Model):
     IdChaza = models.AutoField(primary_key=True)
     NombreChaza = models.CharField(max_length=40, blank=False, null=False,  verbose_name="Nombre Chaza")
     Puntuacion = models.FloatField(blank=False, null=False)
-    IdCategoria = models.ForeignKey(categoria, on_delete=models.CASCADE, verbose_name="categoria", default=-1)
+    # IdCategoria = models.ForeignKey(categoria, on_delete=models.CASCADE, verbose_name="categoria", default=-1)
     Descripcion = models.TextField(blank=False, null=False,  verbose_name="Descripción",)
     Ubicacion = models.CharField(max_length=200, blank=False, null=False,  verbose_name="Ubicación",)
     slug= models.SlugField(max_length=255, unique=True, default="default")
