@@ -12,7 +12,7 @@
     
     <body>        
       {% load socialaccount %} {% providers_media_js %} {% load i18n %}
-      <div>
+      <main>
         <div class="header-Box">
           <div class ="title-Box">
             <a class = "mainPage-Link" href="/">
@@ -52,13 +52,14 @@
             <p class = "mainPage-ButtonTitle">Ranking Semanal</p>
           </div>
         </div>
-      </div>
-      <div class = "footerSpace"></div>
-      <div class= "footer">
+      </main>
+
+      <footer>
         <div class = "footer-Content">
           <p class = "footer-Text">Desarrollado por</p>
           <img src="{% static 'Pictures/milhojasLogo.png' %}" class="Milhojas-logo" alt="Milhojas logo" />
         </div>
-      </div>
+      </footer>
+
     </body>
   </html>
