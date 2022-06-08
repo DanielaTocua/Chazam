@@ -38,3 +38,10 @@ class resenasForm(ModelForm):
     class Meta:
         model = comentarios
         fields = ['DescripcionComentario', 'PuntuacionDada']
+        widgets = {
+            'DescripcionComentario': Textarea(attrs={
+                'class': "form-control4"
+                }),
+            'PuntuacionDada': Select(attrs={
+                'class': "form-control5"
+                })}
