@@ -153,7 +153,8 @@ class chaza_view(DetailView):
     def post(self,request,*args, **kwargs): 
         self.object = self.get_object()
         form = resenasForm(request.POST)
-        context = self.get_context_data(object = self.object, form = form,owner=userIsOwner(request.user.id)) 
+        comentariosChaza = comentarios.objects.filter(IdChaza_id = self.object.IdChaza)
+        context = self.get_context_data(object = self.object, form = form,owner=userIsOwner(request.user.id), comentariosChaza = comentariosChaza) 
         if form.is_valid():
             try:
                 comentario = comentarios.objects.get(IdComensal_id = request.user.id, IdChaza_id = self.object.IdChaza )
@@ -167,13 +168,14 @@ class chaza_view(DetailView):
     def get(self,request,*args, **kwargs):
         self.object = self.get_object()
         try:
-            comentario = comentarios.objects.get(IdComensal_id = request.user.id, IdChaza_id = self.object.IdChaza )
+            comentario = comentarios.objects.get(IdComensal_id = request.user.id, IdChaza_id = self.object.IdChaza)
             form = resenasForm(initial={'DescripcionComentario': comentario.DescripcionComentario, 'PuntuacionDada': comentario.PuntuacionDada})
         except:
             form = resenasForm()
-            
-        
-        context = self.get_context_data(object = self.object, form = form, owner=userIsOwner(request.user.id))
+        comentariosChaza = comentarios.objects.filter(IdChaza_id = self.object.IdChaza)
+        context = self.get_context_data(object = self.object, form = form, owner=userIsOwner(request.user.id), comentariosChaza = comentariosChaza)
+                                          
+
         return self.render_to_response(context)
 
     def get_context_data(self,form,owner, **kwargs):
@@ -181,3 +183,4 @@ class chaza_view(DetailView):
             context['form'] = form
             context['user_is_owner'] = owner
             return context
+    

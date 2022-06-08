@@ -7,6 +7,7 @@ from django.dispatch import receiver
 from django.utils.text import slugify
 from django.db.models import IntegerField, Model
 from django.db.models import Avg
+import math
 
 
 # Create your models here.
@@ -83,7 +84,7 @@ class comentarios(models.Model):
     IdComensal = models.ForeignKey(comensales, on_delete=models.CASCADE)
     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE, verbose_name="Nombre de la chaza")
     DescripcionComentario= models.TextField(max_length=400, blank=False, null=False, verbose_name="Escribe tu reseña")
-    PuntuacionDada = models.IntegerField(blank=False, default=0, verbose_name="Puntuación",  choices=RATING_RANGE)
+    PuntuacionDada = models.IntegerField(blank=False, default=5, verbose_name="Puntuación",  choices=RATING_RANGE)
     def __str__(self):
         return self.IdComentario + "." + self.DescripcionComentario
 
@@ -101,7 +102,7 @@ def update_Puntuacion(sender,instance, **kwargs):
     puntaje = comentarios.objects.filter(IdChaza_id = pkChaza).aggregate( Avg('PuntuacionDada'))
     chazaUpdate = chaza.objects.get(IdChaza= pkChaza)
 
-    chazaUpdate.Puntuacion = puntaje['PuntuacionDada__avg']
+    chazaUpdate.Puntuacion = round(puntaje['PuntuacionDada__avg'], 2)
     chazaUpdate.save()
 # class Producto(models.Model):
 #     IdProducto = models.AutoField(primary_key=True)
