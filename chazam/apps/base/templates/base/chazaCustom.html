@@ -49,9 +49,9 @@
         <p> {{object.Descripcion}}</p>
 
         <div id="popup-content">
+          <div class = "signup-Box4">
           <form method="POST" action="">
             {% csrf_token %}
-            <div class = "signup-Box4">
               <p>Dejale saber a la comunidad universitaria lo que piensas de esta chaza!</p>
               <div class = "form-control4">
                 {{ form.DescripcionComentario }}
@@ -61,8 +61,13 @@
                 {{ form.PuntuacionDada }}
               </div>         
               <input type = "submit" class = "registerButton3" value ="Continuar">
-            </div>
-          </form>
+              
+            </form>
+          <a href = {% url 'eraseComment' id=object.IdChaza %}>
+            {% csrf_token %}
+            <input type = "submit" class = "registerButton4" value ="Eliminar Comentario">
+          </a> 
+          </div>
           <button id="close-popup-1" onclick="showPopUp('popup-content')">
             <img src="{% static 'Pictures/close.png' %}" class="close-logo" alt="close" />
           </button>

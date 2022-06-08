@@ -57,6 +57,18 @@ def form_comensales(request):
          context = {'form': form}
          return render(request, 'finalSignup.html', context)
 
+
+def comment_delete(request, id):
+    try:
+        #Borra los registros de la chaza en la base de datos
+        idActual = str(request.user.id)
+        instance = comentarios.objects.get(IdChaza=id, IdComensal = idActual)
+        chacita = chaza.objects.get(IdChaza=id)
+        instance.delete()    
+    except:
+        pass
+    return redirect('../chaza/'+ str(chacita.slug))
+
 @login_required
 def form_chaza(request ):
     idActual = str(request.user.id)
