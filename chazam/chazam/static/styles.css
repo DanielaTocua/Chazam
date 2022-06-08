@@ -283,6 +283,7 @@ button{
   border-top-right-radius: 4px;
   opacity: 0;
   height: 75px;
+  width: 85%;
   overflow-y: auto;
   padding: 20px 10px 20px 0px;
   transition: 0.8s ease;
