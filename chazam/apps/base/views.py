@@ -162,7 +162,9 @@ class chaza_view(DetailView):
                 comentario =  comentarios(IdChaza_id=self.object.IdChaza, IdComensal_id = request.user.id)  
             form = resenasForm(request.POST, instance = comentario)
             comentario.save()
-            form.save()
+            form.save()  
+            return redirect('/chaza/'+ str(self.object.slug))
+        
         return self.render_to_response(context)
         
     def get(self,request,*args, **kwargs):
@@ -174,7 +176,6 @@ class chaza_view(DetailView):
             form = resenasForm()
         comentariosChaza = comentarios.objects.filter(IdChaza_id = self.object.IdChaza)
         context = self.get_context_data(object = self.object, form = form, owner=userIsOwner(request.user.id), comentariosChaza = comentariosChaza)
-                                          
 
         return self.render_to_response(context)
 
