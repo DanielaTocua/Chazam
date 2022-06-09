@@ -63,10 +63,12 @@
               <input type = "submit" class = "registerButton3" value ="Continuar">
               
             </form>
-          <a href = {% url 'eraseComment' id=object.IdChaza %}>
-            {% csrf_token %}
-            <input type = "submit" class = "registerButton4" value ="Eliminar Comentario">
-          </a> 
+            {% if commentExists %}
+            <a href = {% url 'eraseComment' id=object.IdChaza %}>
+              {% csrf_token %}
+              <input type = "submit" class = "registerButton4" value ="Eliminar Comentario">
+            </a> 
+            {% endif %}
           </div>
           <button id="close-popup-1" onclick="showPopUp('popup-content')">
             <img src="{% static 'Pictures/close.png' %}" class="close-logo" alt="close" />

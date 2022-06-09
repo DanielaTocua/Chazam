@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -166,34 +167,39 @@ class chaza_view(DetailView):
         self.object = self.get_object()
         form = resenasForm(request.POST)
         comentariosChaza = comentarios.objects.filter(IdChaza_id = self.object.IdChaza)
-        context = self.get_context_data(object = self.object, form = form,owner=userIsOwner(request.user.id), comentariosChaza = comentariosChaza) 
+        commentExists = False
+        
         if form.is_valid():
             try:
                 comentario = comentarios.objects.get(IdComensal_id = request.user.id, IdChaza_id = self.object.IdChaza )
+                commentExists = True
             except:
                 comentario =  comentarios(IdChaza_id=self.object.IdChaza, IdComensal_id = request.user.id)  
             form = resenasForm(request.POST, instance = comentario)
             comentario.save()
             form.save()  
             return redirect('/chaza/'+ str(self.object.slug))
-        
+        context = self.get_context_data(object = self.object, form = form,owner=userIsOwner(request.user.id), comentariosChaza = comentariosChaza, commentExists=commentExists) 
         return self.render_to_response(context)
         
     def get(self,request,*args, **kwargs):
         self.object = self.get_object()
+        commentExists = False
         try:
             comentario = comentarios.objects.get(IdComensal_id = request.user.id, IdChaza_id = self.object.IdChaza)
             form = resenasForm(initial={'DescripcionComentario': comentario.DescripcionComentario, 'PuntuacionDada': comentario.PuntuacionDada})
+            commentExists = True
         except:
             form = resenasForm()
         comentariosChaza = comentarios.objects.filter(IdChaza_id = self.object.IdChaza)
-        context = self.get_context_data(object = self.object, form = form, owner=userIsOwner(request.user.id), comentariosChaza = comentariosChaza)
+        context = self.get_context_data(object = self.object, form = form, owner=userIsOwner(request.user.id), comentariosChaza = comentariosChaza, commentExists=commentExists)
 
         return self.render_to_response(context)
 
-    def get_context_data(self,form,owner, **kwargs):
+    def get_context_data(self,form,owner,commentExists, **kwargs):
             context = super().get_context_data(**kwargs)
             context['form'] = form
             context['user_is_owner'] = owner
+            context['commentExists'] = commentExists
             return context
     

@@ -17,7 +17,7 @@ main {
 #close-popup-1 {
     position: sticky;
     margin-left: 316px;
-    margin-top: -441px;
+    margin-top: -107%;
     background-color: rgba(5, 34, 36, 0);
 }
 
@@ -166,7 +166,7 @@ button {
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
+    margin-top: 15%;
     width: 310px;
     font-size: 20px;
     color: white;
