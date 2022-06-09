@@ -63,7 +63,7 @@ class FiltroChazas(django_filters.FilterSet):
         label='Chaza', 
         method='my_lookup_method',
         widget=TextInput(attrs={
-            'placeholder': 'Inserta el nombre de la chaza o una palabra clave (Ej: postres)',
+            'placeholder': 'Inserta el nombre de la chaza o una palabra clave (Ej: postres, hamburguesas...)',
              'class': "searchField"
              })
     )
