@@ -20,7 +20,7 @@ class FiltroChazas(django_filters.FilterSet):
 
     CHOICES_CATEGORIAS = []
     CHOICES_UBICACIONES = []
-    CHOICES_PUNTUACIONES = [(1,"0-1"),(2,"1-2"),(3,"2-3"),(4,"3-4"),(5,"4-5")]
+    CHOICES_PUNTUACIONES = [(1,"0 - 1"),(2,"1 - 2"),(3,"2 - 3"),(4,"3 - 4"),(5,"4 - 5")]
     # Obtengo todas las categorias y las ubicaciones y las meto a sus CHOICES
     categorias = categoria.objects.all()
     ubicaciones = Ubicaciones.objects.all()
