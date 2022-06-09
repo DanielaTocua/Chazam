@@ -17,7 +17,7 @@ main {
 #close-popup-1 {
     position: sticky;
     margin-left: 316px;
-    margin-top: -441px;
+    margin-top: -107%;
     background-color: rgba(5, 34, 36, 0);
 }
 
@@ -172,20 +172,6 @@ button {
     color: white;
 }
 
-.filtro-Box {
-    display: block;
-    text-align: right;
-    background-color: rgba(5, 22, 30, 0);
-    padding: 0px 0px 0px 0px;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom:0px;
-    width: 1160px;
-    font-size: 20px;
-    color: white;
-}
-
 .registerChaza-Box {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.705);
@@ -308,7 +294,7 @@ button {
     padding: 0px 15px 0px 15px;
     margin-left: auto;
     margin-right: auto;
-    width: 1130px;
+    width: 1000px;
     font-size: 20px;
     color: white;
     background-color: #12879c;
@@ -898,4 +884,18 @@ footer {
 .filterTitle{
     font-weight: bold;
     margin: 5px 0 5px 5px;
+}
+
+.containerDivCool{
+    overflow:auto; 
+    background-color: rgba(0, 0, 0, 0);
+    text-align: right;
+    padding: 0px 0px 0px 0px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:0px;
+    width: 1160px;
+    font-size: 20px;
+    color: white;
 }

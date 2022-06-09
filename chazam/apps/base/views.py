@@ -8,6 +8,7 @@ from .filters import *
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormMixin
+from django.http import HttpResponse
 
 def userIsOwner(userId):
     isOwner = False
@@ -179,8 +180,7 @@ class chaza_view(DetailView):
             comentario.save()
             form.save()  
             return redirect('/chaza/'+ str(self.object.slug))
-        context = self.get_context_data(object = self.object, form = form,owner=userIsOwner(request.user.id), comentariosChaza = comentariosChaza, commentExists=commentExists) 
-        return self.render_to_response(context)
+        return HttpResponse(status=204)
         
     def get(self,request,*args, **kwargs):
         self.object = self.get_object()
