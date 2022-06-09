@@ -39,8 +39,7 @@
       </div>
     </div>
 
-
-    <form class="filtro-Box" method="GET" action="">
+    <form method="GET" action="">
       {% csrf_token %}
       <div class = "containerForSearchField">
         <div class="filtro-Box2">
@@ -50,40 +49,42 @@
         </div>
         <input type="image" class="filtroButton" src="{% static 'Pictures/catalogoLogo.png' %}">
       </div>
-      <div class="leftFilter">
-        <div class="ubicacionesFilterContainer">
-          <p class = "filterTitle">{{filtro.form.Ubicaciones.label_tag}}</p>
-          {{filtro.form.Ubicaciones}}
+      <div class="containerDivCool">
+        <div class="leftFilter">
+          <div class="ubicacionesFilterContainer">
+            <p class = "filterTitle">{{filtro.form.Ubicaciones.label_tag}}</p>
+            {{filtro.form.Ubicaciones}}
+          </div>
+          <div class="ubicacionesFilterContainer">
+            <p class = "filterTitle">{{filtro.form.Categorias.label_tag}}</p>
+            {{filtro.form.Categorias}}
+          </div>
+          <div class="ubicacionesFilterContainer">
+            <p class = "filterTitle">{{filtro.form.Puntuaciones.label_tag}}</p>
+            {{filtro.form.Puntuaciones}}
+          </div>
         </div>
-        <div class="ubicacionesFilterContainer">
-          <p class = "filterTitle">{{filtro.form.Categorias.label_tag}}</p>
-          {{filtro.form.Categorias}}
-        </div>
-        <div class="ubicacionesFilterContainer">
-          <p class = "filterTitle">{{filtro.form.Puntuaciones.label_tag}}</p>
-          {{filtro.form.Puntuaciones}}
-        </div>
+
+        <div class = "filtro-Box3">
+          {% for chaza in chazas %}
+          <div class="cardsChaza-Box">
+            <a href = "../chaza/{{chaza.slug}}">
+            <div class="cardChaza-title">
+              <p class = "chazaTitle">{{chaza.NombreChaza}}</p>
+              <p class = "chazaPuntuacion">Categoria: {{ chaza.getCategoryName }}</p>
+              <p class = "chazaPuntuacion">Valoración: {{chaza.Puntuacion}}</p>
+            </div>
+            <div class="cardChaza-desc" >
+              <p class = "chazaUbicacion">Ubicación: {{chaza.getLocationName}}</p>
+              <p class = "chazaDescripcion">{{chaza.Descripcion}}</p>
+            </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div> 
       </div>
     </form> 
-    
-    <div class = "filtro-Box3">
-      {% for chaza in chazas %}
-      <div class="cardsChaza-Box">
-        <a href = "../chaza/{{chaza.slug}}">
-        <div class="cardChaza-title">
-          <p class = "chazaTitle">{{chaza.NombreChaza}}</p>
-          <p class = "chazaPuntuacion">Categoria: {{ chaza.getCategoryName }}</p>
-          <p class = "chazaPuntuacion">Valoración: {{chaza.Puntuacion}}</p>
-        </div>
-        <div class="cardChaza-desc" >
-          <p class = "chazaUbicacion">Ubicación: {{chaza.getLocationName}}</p>
-          <p class = "chazaDescripcion">{{chaza.Descripcion}}</p>
-        </div>
-        </a>
-      </div>
-      {% endfor %}
-    </div> 
-
+  
   </main>
     <footer>
       <div class = "footer-Content">
