@@ -89,6 +89,7 @@ def form_chaza(request ):
                 form.save()
                 obj.save()
                 return redirect(mainPage)
+            return HttpResponse(status=204)
         #Si la chaza no existe, se crea desde 0
         else:
             obj = chaza()
@@ -102,6 +103,7 @@ def form_chaza(request ):
                 obj2.IdComensal_id = request.user.id
                 obj2.save()
                 return redirect(mainPage)
+            return HttpResponse(status=204)
             
     else:
         idActual = str(request.user.id)
