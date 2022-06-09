@@ -36,7 +36,35 @@
             <p class ="logout-Text">Cerrar sesión</p>
           </a>
         </div>
-      </div>  
+      </div>
+    <div class = "containerDivCool2"> 
+      <div id="popup-content">
+        <div class = "signup-Box4">
+        <button id="close-popup-1" onclick="showPopUp('popup-content')">
+          <img src="{% static 'Pictures/close.png' %}" class="close-logo" alt="close" />
+        </button>
+        <form class ="reseñaForm" method="POST" action="">
+          {% csrf_token %}
+            <p>Dejale saber a la comunidad universitaria lo que piensas de esta chaza!</p>
+            <div class = "form-control4">
+              {{ form.DescripcionComentario }}
+            </div>
+            <p>Puntuación</p>
+            <div class = "form-control5">
+              {{ form.PuntuacionDada }}
+            </div>         
+            <input type = "submit" class = "registerButton3" value ="Continuar">
+            
+          </form>
+          {% if commentExists %}
+          <a href = {% url 'eraseComment' id=object.IdChaza %}>
+            {% csrf_token %}
+            <input type = "submit" class = "registerButton4" value ="Eliminar Comentario">
+          </a> 
+          {% endif %}
+        </div>
+      </div>
+
       <div class="profileChaza-Box">  
         <button class = "rateChazaButton" onclick="showPopUp('popup-content')">
           <img src="{% static 'Pictures/plus.png' %}" class="plus-logo" alt="Plus sign" />
@@ -46,42 +74,15 @@
         <p class = "LocationText-Profile">Categoría:  {{object.getCategoryName}}</p>
         <p class = "LocationText-Profile">Ubicacion:  {{object.getLocationName}}</p>
         <p class ="LocationText-Profile"> Calificación: {{object.Puntuacion}} de 5</p>
-        <p> {{object.Descripcion}}</p>
-
-        <div id="popup-content">
-          <div class = "signup-Box4">
-          <form method="POST" action="">
-            {% csrf_token %}
-              <p>Dejale saber a la comunidad universitaria lo que piensas de esta chaza!</p>
-              <div class = "form-control4">
-                {{ form.DescripcionComentario }}
-              </div>
-              <p>Puntuación</p>
-              <div class = "form-control5">
-                {{ form.PuntuacionDada }}
-              </div>         
-              <input type = "submit" class = "registerButton3" value ="Continuar">
-              
-            </form>
-            {% if commentExists %}
-            <a href = {% url 'eraseComment' id=object.IdChaza %}>
-              {% csrf_token %}
-              <input type = "submit" class = "registerButton4" value ="Eliminar Comentario">
-            </a> 
-            {% endif %}
-          </div>
-          <button id="close-popup-1" onclick="showPopUp('popup-content')">
-            <img src="{% static 'Pictures/close.png' %}" class="close-logo" alt="close" />
-          </button>
-        </div>
-
+        <p> {{object.Descripcion}}</p>        
       </div>  
       {% for comentario in comentariosChaza %}
       <div class="commentsChaza-Box">  
         <p class = "chazaComment">"{{comentario.DescripcionComentario}}"</p>
         <p class = "chazaRatingScore">Puntuación: {{comentario.PuntuacionDada}} de 5</p>
       </div>
-      {% endfor %}  
+      {% endfor %} 
+    </div> 
     </main>
 
     <footer>
