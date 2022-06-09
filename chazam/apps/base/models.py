@@ -36,7 +36,6 @@ class chaza(models.Model):
 
     NombreChaza = models.CharField(max_length=40, blank=False, null=False,  verbose_name="Nombre Chaza")
     Puntuacion = models.FloatField(blank=False)
-    
     Descripcion = models.TextField(blank=False, null=False,  verbose_name="Descripción",)
     
     slug= models.SlugField(max_length=255, unique=True, default="default")
