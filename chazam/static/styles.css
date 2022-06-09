@@ -210,8 +210,6 @@ button {
     background-color: rgba(214, 74, 74, 0.887);
     padding: 30px 70px 30px 70px;
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 0px;
     margin-bottom: 20px;
     width: 700px;
@@ -532,10 +530,9 @@ button {
     border-radius: 15px;
     padding: 5px 10px 5px 20px;
     width: 245px;
-    margin-top: 5px;
-    margin-right: -365px;
-    position: sticky;
-    float: right;
+    top: 25px;
+    right: 25px;
+    position: absolute;
 }
 
 .goBackButton {
@@ -861,14 +858,15 @@ footer {
 
 #popup-content {
     visibility: hidden;
-    position: sticky;
-    float: right;
     padding: 0px;
     margin-top:20px;
     margin-right: 0px;
     background-color: rgba(116, 28, 28, 0);
     width: 400px;
     z-index: 20;
+    position: absolute;
+    top: 0;
+    right: 4px;
 }
 
 .leftFilter {
@@ -906,7 +904,7 @@ footer {
 }
 
 .containerDivCool2{
-    overflow-y: auto;
+    position:relative;
     background-color: rgba(0, 0, 0, 0);
     padding: 0px 0px 0px 0px;
     margin-left: auto;
@@ -914,4 +912,5 @@ footer {
     margin-bottom:0px;
     width: 840px;
     color: white;
+    min-height: 480px;
 }
