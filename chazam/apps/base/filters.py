@@ -5,6 +5,8 @@ import django_filters
 from django import forms
 from django_filters import  *
 from django.db.models import Q
+from django.forms import TextInput
+
 # Para filtrar chazas --> pip install django-filter
 class FiltroChazas(django_filters.FilterSet):
     class Meta:
@@ -57,7 +59,11 @@ class FiltroChazas(django_filters.FilterSet):
     
     my_lookup_field = django_filters.CharFilter(
         label='Chaza', 
-        method='my_lookup_method'
+        method='my_lookup_method',
+        widget=TextInput(attrs={
+            'placeholder': 'Inserta el nombre de la chaza o una palabra clave (Ej: postres)',
+             'class': "searchField"
+             })
     )
     
     # Métodos :3

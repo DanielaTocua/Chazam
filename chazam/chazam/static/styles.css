@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap');
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -15,7 +17,7 @@ main {
 #close-popup-1 {
     position: sticky;
     margin-left: 316px;
-    margin-top: -411px;
+    margin-top: -441px;
     background-color: rgba(5, 34, 36, 0);
 }
 
@@ -171,13 +173,15 @@ button {
 }
 
 .filtro-Box {
+    display: block;
     text-align: right;
     background-color: rgba(5, 22, 30, 0);
-    padding: 0px 70px 0px 70px;
+    padding: 0px 0px 0px 0px;
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 815px;
+    margin-bottom:0px;
+    width: 1160px;
     font-size: 20px;
     color: white;
 }
@@ -223,6 +227,20 @@ button {
     color: white;
 }
 
+.commentsChaza-Box {
+    text-align: left;
+    background-color: rgba(89, 10, 10, 0.8);
+    padding: 30px 70px 30px 70px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 700px;
+    font-size: 20px;
+    color: white;
+}
+
 .signup-Box2 {
     text-align: left;
     background-color: rgba(5, 22, 30, 0.6);
@@ -237,15 +255,42 @@ button {
 }
 
 .filtro-Box2 {
-    text-align: center;
+    text-align: left;
     display: block;
     float: left;
     background-color: rgba(22, 126, 129, 0.6);
     padding: 10px 40px 10px 40px;
     border-radius: 15px;
-    width: 625px;
+    width: 980px;
+    height:40px;
     font-size: 20px;
     color: white;
+}
+
+.containerForSearchField{
+    width:1160px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.searchField{
+    background-color: rgba(0,0,0,0);
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    margin-top:3px;
+    width:975px;
+}
+
+.searchField::placeholder {
+    color: rgb(168, 216, 214);
+    font-weight: normal;
+}
+
+.searchField:focus{
+    outline: none;
 }
 
 .filtroButton {
@@ -253,20 +298,20 @@ button {
     background-color: rgba(22, 126, 129, 0.6);
     border-style: none;
     padding: 10px 10px 10px 10px;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin: 0px 20px 20px 20px;
 }
 
 .filtro-Box3 {
     text-align: left;
     padding: 0px 15px 0px 15px;
-    border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    width: 815px;
+    width: 1130px;
     font-size: 20px;
     color: white;
+    background-color: #12879c;
 }
 
 .cardsChaza-Box {
@@ -285,7 +330,6 @@ button {
     height: 80px;
     font-size: 20px;
     color: white;
-    box-shadow: 0 40px 60px -8px black;
 }
 
 .cardChaza-title {
@@ -340,6 +384,20 @@ button {
     color: #000000;
     font-size: 16px;
     margin: 5px 0 0 0;
+}
+
+.chazaComment {
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: italic;
+    margin: 3px 0 0 0;
+    font-size:22px;
+}
+
+.chazaRatingScore{
+    color: #f29c9c;
+    margin: 10px 0 0 0;
+    font-size:22px;
 }
 
 .signup-Box3 {
@@ -653,7 +711,7 @@ a {
     padding: 10px 5px 10px 5px;
     width: 130px;
     margin-top: 25px;
-    margin-left: 90px;
+    margin-left: 94px;
     font-family: 'Roboto', sans-serif;
     color: white;
     font-size: 18px;
@@ -664,9 +722,9 @@ a {
     background-color: rgb(173, 11, 46);
     border-style: none;
     padding: 10px 5px 10px 5px;
-    width: 130px;
-    margin-top: 25px;
-    margin-left: 90px;
+    width: 210px;
+    margin-top: -11px;
+    margin-left: 55px;
     font-family: 'Roboto', sans-serif;
     color: white;
     font-size: 18px;
@@ -821,41 +879,23 @@ footer {
     z-index: 20;
 }
 
-.WrappedPhotoDescription {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 2fr;
-    margin-left: -40%;
-    /* Cuadrícula para poner fotos y descripciones con texto */
+.leftFilter {
+    float: left;
+    background-color:rgba(255, 255, 255, 0); 
+    width: 160px;
+    text-align: left;
+    margin-right: 20px;
+    font-size: 17px;
 }
 
-.charWrapperRight,
-.charWrapperLeft {
-    display: inline-block;
-    height: min-content;
-    /* Los contenedores de personajes se muestran en forma de inline block para ajustarse a la pantalla */
+.ubicacionesFilterContainer{
+    border-radius:5px;
+    background-color: rgba(6, 55, 54, 0.767);
+    padding: 15px 10px 15px 10px;
+    margin-bottom:10px;
 }
 
-.articleRight {
-    float: right;
-    margin-top: 1.6%;
-    margin-right: 1.6%;
-    margin-left: 0%;
-    margin-bottom: 0px;
-    padding-left: 10%;
-    /* background-color:rgba(255, 255, 255, 0.8); */
-    border-radius: 10px;
-    vertical-align: top;
-    /* Le da formato a los article de la página. ArticleRight evita que ocupen todo el espacio horizontal de la página, moviéndose hacia la derecha */
-}
-
-.articleLeft {
-    position: static;
-    display: inline-block;
-    /* Permite que más de un elemento ocupe la línea */
-    /* margin: 1.6%; */
-    /* margin-right: 20%; */
-    padding-right: -20%;
-    border-radius: 10px;
-    /* Le da formato a los article de la página. ArticleLeft evita que ocupen todo el espacio horizontal de la página, moviéndose hacia la izquierda */
+.filterTitle{
+    font-weight: bold;
+    margin: 5px 0 5px 5px;
 }

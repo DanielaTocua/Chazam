@@ -73,17 +73,13 @@
           </button>
         </div>
 
-      </div> 
-      <div class="profileChaza-Box">  
-        {% for comentario in comentariosChaza %}
-      <div class="cardsChaza-Box">  
-        <div class="cardChaza-title">
-          <p class = "chazaTitle">{{comentario.DescripcionComentario}}</p>
-          <p class = "chazaPuntuacion">Puntuación otorgada: {{comentario.PuntuacionDada}}</p>
-        </div>
+      </div>  
+      {% for comentario in comentariosChaza %}
+      <div class="commentsChaza-Box">  
+        <p class = "chazaComment">"{{comentario.DescripcionComentario}}"</p>
+        <p class = "chazaRatingScore">Puntuación: {{comentario.PuntuacionDada}} de 5</p>
       </div>
       {% endfor %}  
-      </div> 
     </main>
 
     <footer>
