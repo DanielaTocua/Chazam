@@ -40,7 +40,10 @@
     <div class = "containerDivCool2"> 
       <div id="popup-content">
         <div class = "signup-Box4">
-        <form method="POST" action="">
+        <button id="close-popup-1" onclick="showPopUp('popup-content')">
+          <img src="{% static 'Pictures/close.png' %}" class="close-logo" alt="close" />
+        </button>
+        <form class ="reseñaForm" method="POST" action="">
           {% csrf_token %}
             <p>Dejale saber a la comunidad universitaria lo que piensas de esta chaza!</p>
             <div class = "form-control4">
@@ -60,9 +63,6 @@
           </a> 
           {% endif %}
         </div>
-        <button id="close-popup-1" onclick="showPopUp('popup-content')">
-          <img src="{% static 'Pictures/close.png' %}" class="close-logo" alt="close" />
-        </button>
       </div>
 
       <div class="profileChaza-Box">  
