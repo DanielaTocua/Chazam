@@ -1,3 +1,4 @@
+from email.mime import base
 from django import forms
 from django.forms import ChoiceField
 from .models import *
@@ -14,11 +15,12 @@ class FiltroChazas(django_filters.FilterSet):
         fields = [
             'NombreChaza', 
             'Descripcion',
-            'IdCategoria']
+            'IdCategoria',
+            'Puntuacion']
 
     CHOICES_CATEGORIAS = []
     CHOICES_UBICACIONES = []
-    CHOICES_PUNTUACIONES = [(1,1),(2,2),(3,3),(4,4),(5,5)]
+    CHOICES_PUNTUACIONES = [(1,"0 - 1"),(2,"1 - 2"),(3,"2 - 3"),(4,"3 - 4"),(5,"4 - 5")]
     # Obtengo todas las categorias y las ubicaciones y las meto a sus CHOICES
     categorias = categoria.objects.all()
     ubicaciones = Ubicaciones.objects.all()
@@ -68,22 +70,19 @@ class FiltroChazas(django_filters.FilterSet):
     
     # Métodos :3
     def Categorias_method(self, queryset, name, value):
-        print("queryset",queryset)
-        print("name",name)
-        print("value",value)
         return queryset.filter((Q(IdCategoria__in=value)))    
     
     def Ubicaciones_method(self, queryset, name, value):
-        print("queryset",queryset)
-        print("name",name)
-        print("value",value)
         return queryset.filter((Q(IdUbicacion__in=value)))    
     
     def Puntuaciones_method(self, queryset, name, value):
-        print("queryset",queryset)
-        print("name",name)
-        print("value",value)
-        return queryset.filter((Q(Puntuacion__in=value)))
+        # Crea un queryset vacío
+        newQueryset = chaza.objects.none()
+        for tope in value:
+            # Por cada casilla marcada, filtra según el rango (es incluyente) y une a "newQueryset"
+            tope_num = int(tope)
+            newQueryset |= queryset.filter(((Q(Puntuacion__gt=(tope_num-1)) & Q(Puntuacion__lt=tope_num)) | Q(Puntuacion=tope_num)| Q(Puntuacion=(tope_num-1)) ))   
+        return newQueryset
         
     def my_lookup_method(self, queryset, name, value):
         return queryset.filter((Q(NombreChaza__icontains=value)|Q(Descripcion__icontains=value)))
