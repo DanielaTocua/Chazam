@@ -45,6 +45,12 @@ class FiltroChazas(django_filters.FilterSet):
         widget = forms.CheckboxSelectMultiple(),
         method = 'Categorias_method'
         )
+    
+    CategoriasRanking =  django_filters.ChoiceFilter(
+        label='Categorias',
+        choices = CHOICES_CATEGORIAS,
+        method = 'CategoriasRanking_method'
+        )
 
     Ubicaciones = django_filters.MultipleChoiceFilter(
         label='Ubicaciones',
@@ -70,7 +76,10 @@ class FiltroChazas(django_filters.FilterSet):
     
     # Métodos :3
     def Categorias_method(self, queryset, name, value):
-        return queryset.filter((Q(IdCategoria__in=value)))    
+        return queryset.filter((Q(IdCategoria__in=value))) 
+
+    def CategoriasRanking_method(self, queryset, name, value):
+        return queryset.filter((Q(IdCategoria__in=value))).order_by("Puntuacion").reverse()  
     
     def Ubicaciones_method(self, queryset, name, value):
         return queryset.filter((Q(IdUbicacion__in=value)))    

@@ -28,6 +28,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('formComensales/',views.form_comensales),
     path('catalogo/',views.filtroChazas),
+    path('ranking/', views.rankingView),
     path('formChaza/',views.form_chaza),
     path('eraseChaza/',views.eraseChaza),
     path('eraseComment/<int:id>',views.comment_delete, name = 'eraseComment'),
