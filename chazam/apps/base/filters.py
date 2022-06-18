@@ -47,7 +47,7 @@ class FiltroChazas(django_filters.FilterSet):
         )
     
     CategoriasRanking =  django_filters.ChoiceFilter(
-        label='Categorias',
+        label='CategoriasRanking',
         choices = CHOICES_CATEGORIAS,
         method = 'CategoriasRanking_method'
         )

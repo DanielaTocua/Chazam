@@ -42,20 +42,24 @@
     <form method="GET" action="">
       {% csrf_token %}
       <div class = "containerForSearchField">
-        {%for categoria in categorias %}
-        <input type="text" class="filtroButton" name = "categoria">
+        
+        {% comment %} {%for categoria in filter.form.CategoriasRanking %}
+          <p>hola</p>
+          <input type="text" class="filtroButton" name = "{{categoria}}">
+        {% endfor %} {% endcomment %}
+    
+        {% for categoria in categorias %}
+       
+          <button type="submit" class="button" name = "CategoriasRanking" value ="{{categoria.IdCategoria}}">
+            {{ categoria.NombreCategoria}}
+            
+          </button>
+ 
         {% endfor %}
       </div>
 
       <div class="containerDivCool">
 
-        <div class="leftFilter">
-          
-          <div class="ubicacionesFilterContainer">
-            <p class = "filterTitle">{{filtro.form.Categorias.label_tag}}</p>
-            {{filtro.form.CategoriasRanking}}
-          </div> 
-        </div>
 
         <div class = "filtro-Box3">
           {% for chaza in chazas %}
