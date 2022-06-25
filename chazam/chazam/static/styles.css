@@ -363,6 +363,20 @@ button {
     margin: 0 0 0 0;
 }
 
+.chazaTitle2 {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 15px;
+    margin: 5px 0 2px 0;
+}
+
+.chazaCategoria {
+    color: #88E6DD;
+    font-size: 10px;
+    margin: 0 0 0 0;
+}
+
 .chazaUbicacion {
     color: #12879c;
     font-size: 16px;
@@ -719,6 +733,21 @@ a {
     font-size: 18px;
 }
 
+.registerButton5 {
+    display:block;
+    border-radius: 5px;
+    background-color: #17A597;
+    border-style: none;
+    padding: 10px 5px 10px 5px;
+    width: 230px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 20px;
+}
+
 .usernameInput {
     width: 240px;
     height: 30px;
@@ -913,4 +942,68 @@ footer {
     width: 840px;
     color: white;
     min-height: 480px;
+}
+
+.mapa-Tag {
+    position:absolute;
+    text-align: center;
+    background-color: #125c53;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+    width: 100px;
+    margin: 0 0 0 0;
+    color: white;
+}
+
+#mapa-Box {
+    float: right;
+    margin-right:20px;
+    width: 950px;
+    height:950px;
+    color: white;
+    background-image: url('Pictures/mapa.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mapa-Box2 {
+    width: 950px;
+    margin-right:auto;
+    margin-left:auto;
+    height:950px;
+    background-image: url('Pictures/mapa.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.selectLocation-text{
+    display:block;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+    height:45px;
+    font-size: 30px;
+    font-weight:400;
+    text-align:center;
+    margin-bottom:0px;
+    padding-top:20px;
+    padding-bottom:5px;
+    color: white;
+    background-color: #0E625A;
+}
+
+#location-Pin{
+    width:50px;
+}
+
+.location-Pin2{
+    position:absolute;
+    width: 50px;
+    height:50px;
+    margin: 0 0 0 0;
+    background-image: url('Pictures/locationPin2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

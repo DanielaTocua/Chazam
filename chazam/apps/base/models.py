@@ -37,7 +37,9 @@ class chaza(models.Model):
     NombreChaza = models.CharField(max_length=40, blank=False, null=False,  verbose_name="Nombre Chaza")
     Puntuacion = models.FloatField(blank=False)
     Descripcion = models.TextField(blank=False, null=False,  verbose_name="Descripción",)
-    
+    CoordenadaX = models.CharField(max_length=6,blank=True, null=True, default= "450px")
+    CoordenadaY = models.CharField(max_length=6, blank=True, null=True, default= "450px")
+
     slug= models.SlugField(max_length=255, unique=True, default="default")
     def __str__(self):
         return self.NombreChaza
@@ -71,6 +73,7 @@ class comensales(models.Model):
     RegistroFinal = models.IntegerField(default=0)
     def __str__(self):
         return self.NombreUsuario
+
 class comentarios(models.Model):
     RATING_RANGE = (
         (1, 1),
@@ -103,9 +106,3 @@ def update_Puntuacion(sender,instance, **kwargs):
 
     chazaUpdate.Puntuacion = round(puntaje['PuntuacionDada__avg'], 2)
     chazaUpdate.save()
-# class Producto(models.Model):
-#     IdProducto = models.AutoField(primary_key=True)
-#     IdChaza = models.ForeignKey(chaza, on_delete=models.CASCADE)
-#     NombreProducto = models.CharField(max_length=30, blank=False, null=False)
-#     Precio = models.FloatField(blank=False, null=False)
-#     Imagen = models.ImageField()

@@ -88,7 +88,7 @@ def form_chaza(request ):
             if form.is_valid():
                 form.save()
                 obj.save()
-                return redirect(mainPage)
+                return redirect(setChazaLocation)
             return HttpResponse(status=204)
         #Si la chaza no existe, se crea desde 0
         else:
@@ -102,7 +102,7 @@ def form_chaza(request ):
                 obj2.IdChaza_id = obj.IdChaza
                 obj2.IdComensal_id = request.user.id
                 obj2.save()
-                return redirect(mainPage)
+                return redirect(setChazaLocation)
             return HttpResponse(status=204)
             
     else:
@@ -218,4 +218,46 @@ class chaza_view(DetailView):
             context['user_is_owner'] = owner
             context['commentExists'] = commentExists
             return context
-    
+
+@login_required()
+def mapa(request):
+    #Mira si el usuario actual es dueño o comensal
+    idActual = str(request.user.id)
+    user_is_owner = userIsOwner(idActual)
+    chazas = chaza.objects.all()
+    filtro = FiltroChazas(request.GET, queryset=chazas)
+    chazas = filtro.qs
+    context = {"filtro": filtro, "chazas":chazas, 'user_is_owner': user_is_owner}
+    return render(request,"mapa.html",context)   
+
+
+@login_required
+def setChazaLocation(request):
+    #Mira si el usuario actual es dueño o comensal
+    idActual = str(request.user.id)
+    user_is_owner = userIsOwner(idActual)
+    if user_is_owner:
+        #Busca la chaza
+        obj0 = DuenoChaza.objects.get(IdComensal_id = idActual)
+        obj = chaza.objects.get(IdChaza = obj0.IdChaza_id)
+        context = {'user_is_owner': user_is_owner, 'chaza': obj}
+        return render(request,"setChazaLocation.html",context) 
+    #Si el usuario es comensal, no puede ingresar
+    else:
+        return redirect(mainPage)
+
+@login_required()
+def updateCoordinates(request):
+    #Mira si el usuario actual es dueño o comensal
+    idActual = str(request.user.id)
+    user_is_owner = userIsOwner(idActual)
+    if user_is_owner:
+        X = request.GET.get('CoorX')
+        Y = request.GET.get('CoorY')
+        #Busca la chaza
+        obj0 = DuenoChaza.objects.get(IdComensal_id = idActual)
+        obj = chaza.objects.get(IdChaza = obj0.IdChaza_id)
+        #Actualiza las coordenadas de la chaza
+        obj.CoordenadaX = X
+        obj.CoordenadaY = Y
+        obj.save()
