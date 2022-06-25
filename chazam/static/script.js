@@ -21,5 +21,13 @@ function changePinLocation(e) {
 function getCoordinates() {
 	var X = document.getElementById("location-Pin").style.marginLeft;
     var Y = document.getElementById("location-Pin").style.marginTop;
-	window.alert("x: " + X + ", y: " + Y);
+	$.ajax({
+        method:'GET',
+		url: '/updateCoordinates',
+        data:{
+            "CoorX": X,
+            "CoorY": Y
+        }
+    });
+	location.href = '/';
 }
