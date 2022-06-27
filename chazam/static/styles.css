@@ -1024,7 +1024,7 @@ footer {
 .containerranking{
     position:relative;
     overflow:auto;
-    background-color: rgba(14, 89, 92, 0.61);
+    background-color: rgba(7, 51, 47, 0.75);
     border-radius:20px;
     padding: 5px 50px 50px 50px;
     margin-left: auto;
@@ -1097,7 +1097,7 @@ table{
 
 th{
     color:white;
-    background-color: rgb(36, 168, 151);
+    background-color: rgb(16, 126, 115);
     padding: 10px 0px 10px 0px;
     width: 200px;
 }
