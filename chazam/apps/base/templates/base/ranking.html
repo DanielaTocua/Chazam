@@ -49,17 +49,18 @@
 
             {% for categoria in categorias %}
 
-            <button type="submit" class="buttonRanking" name="CategoriasRanking" value="{{categoria.IdCategoria}}">
+            <button onclick = 'changeColor("{{ categoria.NombreCategoria}}")'  type="submit" class="buttonRanking" id = "{{ categoria.NombreCategoria}}" name="CategoriasRanking" value="{{categoria.IdCategoria}}">
               {{ categoria.NombreCategoria}}
-
             </button>
-
             {% endfor %}
           </div>
 
+          {% if not chazas %}
           <div class="containerDivCool3">
-
-
+            No se encuentran chazas registradas en la categoria
+          </div>
+          {% else %}
+          <div class="containerDivCool4">
             <table>
               <tr>
                 <th scope="col1">Chaza</th>
@@ -80,6 +81,7 @@
               {% endfor %}
             </table>
           </div>
+          {% endif %}
         </form>
       </div>
       <!-- Aqui finaliza el ranking-->

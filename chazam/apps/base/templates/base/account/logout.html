@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="logout-Page-Box">
-  <a class = "goBackButton2" href="/">
+  <a class = "goBackButton2" href="{{request.META.HTTP_REFERER}}">
     <p class = "goBack-Text">Volver</p>
   </a>
   <h1>Cerrar Sesión</h1>
