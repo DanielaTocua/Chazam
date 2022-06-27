@@ -166,7 +166,7 @@ def rankingView(request):
     idActual = str(request.user.id)
     
     user_is_owner = userIsOwner(idActual)
-    chazas = chaza.objects.all()
+    chazas = chaza.objects.all().order_by("-Puntuacion")
     filtro = FiltroChazas(request.GET, queryset=chazas)
     chazas = filtro.qs
     context = {"filtro": filtro, "chazas":chazas, 'user_is_owner': user_is_owner}

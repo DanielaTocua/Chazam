@@ -47,11 +47,6 @@
           {% csrf_token %}
           <div class="leftRanking">
 
-            {% comment %} {%for categoria in filter.form.CategoriasRanking %}
-            <p>hola</p>
-            <input type="text" class="filtroButton" name="{{categoria}}">
-            {% endfor %} {% endcomment %}
-
             {% for categoria in categorias %}
 
             <button type="submit" class="buttonRanking" name="CategoriasRanking" value="{{categoria.IdCategoria}}">
