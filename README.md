@@ -1,2 +1,0 @@
-# Chazam
-Proyecto Ingesoft I
