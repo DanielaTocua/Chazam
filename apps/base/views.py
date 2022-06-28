@@ -26,13 +26,10 @@ def login(request):
     
 def finalSignup(request):
     idActual = str(request.user.id)
-    o = comensales.objects.get(RegistroFinal=idActual)
-    count = 0
-    for obj in o:
-        count += 1
-    if count != 0:
+    try:
+        o = comensales.objects.get(RegistroFinal=idActual)
         return redirect(mainPage)
-    else:
+    except:
         return redirect(form_comensales)
 
 @login_required
