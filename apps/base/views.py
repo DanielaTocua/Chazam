@@ -73,12 +73,8 @@ def form_chaza(request ):
     idActual = str(request.user.id)
     if request.method == 'POST':
         #Revisa si el dueño ya tiene una chaza creada
-        o = comensales.objects.raw("SELECT * from base_duenochaza where IdComensal_id = "+idActual)
-        count = 0
-        for obj in o:
-            count += 1
-        #Si la chaza ya existe, se modifican sus valores
-        if count != 0:
+        try:
+            o = comensales.objects.get(IdComensal_id=idActual)
             obj0 = DuenoChaza.objects.get(IdComensal_id = idActual)
             obj = chaza.objects.get(IdChaza = obj0.IdChaza_id)
             form = chazaForm(request.POST, instance=obj)
@@ -88,7 +84,7 @@ def form_chaza(request ):
                 return redirect(setChazaLocation)
             return HttpResponse(status=204)
         #Si la chaza no existe, se crea desde 0
-        else:
+        except:
             obj = chaza()
             obj.Puntuacion = 0
             obj2 = DuenoChaza()
