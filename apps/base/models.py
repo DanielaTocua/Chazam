@@ -1,4 +1,3 @@
-from turtle import pos
 from django.db import models 
 from django.forms import IntegerField 
 from django.conf import settings
