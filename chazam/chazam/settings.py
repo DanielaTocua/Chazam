@@ -30,7 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["localhost:8000"]
 
 
 # Application definition
@@ -170,3 +170,5 @@ LOGOUT_REDIRECT_URL = '/loginPage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SITE_ID = 1
+"import django_heroku" 
+"django_heroku.settings(locals())" 
