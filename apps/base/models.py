@@ -7,6 +7,7 @@ from django.dispatch import receiver
 from django.utils.text import slugify
 from django.db.models import IntegerField, Model
 from django.db.models import Avg
+from django.db.models.deletion import CASCADE
 import math
 
 
