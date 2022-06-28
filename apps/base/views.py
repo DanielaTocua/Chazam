@@ -26,7 +26,7 @@ def login(request):
     
 def finalSignup(request):
     idActual = str(request.user.id)
-    o = comensales.objects.raw("SELECT * from base_comensales.RegistroFinal where RegistroFinal = "+idActual)
+    o = comensales.objects.raw("SELECT * from base_comensales where RegistroFinal = "+idActual)
     count = 0
     for obj in o:
         count += 1
