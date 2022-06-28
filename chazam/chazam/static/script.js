@@ -31,3 +31,9 @@ function getCoordinates() {
     });
 	location.href = '/';
 }
+
+function changeColor(cat) {
+	var categoriaButton = document.getElementById(cat);
+	categoriaButton.style.backgroundColor = "#015554";
+	categoriaButton.style.color = "white";
+} 
