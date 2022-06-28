@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'django_filters',
 ]
-
+#comentario de prueba
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
