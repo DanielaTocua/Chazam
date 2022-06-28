@@ -67,7 +67,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'chazam.urls'
-CSRF_TRUSTED_ORIGINS = ['https://unchazam.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://unchazam.herokuapp.com']
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
